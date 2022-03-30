@@ -60,8 +60,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\HangmanViewModel.cs" />
-    <Compile Include="View\HangmanView.xaml.cs">
-      <DependentUpon>HangmanView.xaml</DependentUpon>
+    <Compile Include="View\HangmanLogInView.xaml.cs">
+      <DependentUpon>HangmanLogInView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -92,7 +92,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\HangmanView.xaml">
+    <Page Include="View\HangmanLogInView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
