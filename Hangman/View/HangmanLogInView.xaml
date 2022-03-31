@@ -11,7 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
         <Label
             Grid.Row="0"
@@ -24,5 +24,32 @@
             >
             Welcome to Hangman! Enjoy the game!
         </Label>
+
+        <Grid Grid.Row="2">
+            <Button x:Name="newProfile"
+                    Width="180"
+                    Height="40"
+                    FontSize="18"
+                    Margin="60,30,689,30"
+                    Content="New Profile"/>
+            <Button x:Name="deleteProfile"
+                    Width="150"
+                    Height="40"
+                    FontSize="18"
+                    Margin="277,40,473,40"
+                    Content="Delete profile"/>
+            <Button x:Name="play"
+                    Width="150"
+                    Height="40"
+                    FontSize="18"
+                    Margin="482,30,268,30" 
+                    Content="Play"/>
+            <Button x:Name="exit"
+                    Width="150"
+                    Height="40"
+                    FontSize="18"
+                    Margin="681,30,69,30" 
+                    Content="Exit"/>
+        </Grid>
     </Grid>
 </Window>
