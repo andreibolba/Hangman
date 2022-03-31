@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hangman.View"
         mc:Ignorable="d"
-        Title="HangmanView" Height="450" Width="800">
+        Title="HangmanView" Height="600" Width="900"
+        Icon="hangman.png">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Row="0"
+            Width="410"
+            Height="40"
+            FontFamily="Impact"
+            FontSize="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            >
+            Welcome to Hangman! Enjoy the game!
+        </Label>
     </Grid>
 </Window>
