@@ -25,31 +25,74 @@
             Welcome to Hangman! Enjoy the game!
         </Label>
 
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="450"/>
+                <ColumnDefinition Width="450"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="1" Margin="125,20,131,170"
+                >
+                <Image.Source>
+                    <BitmapImage UriSource="userimg1.png"></BitmapImage>
+                </Image.Source>
+            </Image>
+
+            <Button x:Name="prev"
+                    Grid.Column="1" 
+                    Margin="85,262,265,57"
+                    FontSize="15"
+                    Content="Prev" 
+                    RenderTransformOrigin="0.473,-0.602"
+            />
+            <Button x:Name="next"
+                Grid.Column="1" 
+                Margin="253,262,97,57"
+                FontSize="15"
+                Content="Next" 
+                RenderTransformOrigin="0.473,-0.602"
+            />
+
+            <ListView x:Name="usernames"
+                Margin="53,29,49,41"
+                FontFamily="Impact"
+                FontSize="25">
+                <ListViewItem Content="Coffie"></ListViewItem>
+                <ListViewItem Content="Tea"></ListViewItem>
+                <ListViewItem Content="Orange Juice"></ListViewItem>
+                <ListViewItem Content="Milk"></ListViewItem>
+                <ListViewItem Content="Iced Tea"></ListViewItem>
+                <ListViewItem Content="Mango Shake"></ListViewItem>
+            </ListView>
+
+        </Grid>
+
+
         <Grid Grid.Row="2">
             <Button x:Name="newProfile"
-                    Width="180"
                     Height="40"
-                    FontSize="18"
-                    Margin="60,30,689,30"
-                    Content="New Profile"/>
+                    FontSize="15"
+                    Margin="70,9,476,71"
+                    Content="New Profile"
+                    />
             <Button x:Name="deleteProfile"
-                    Width="150"
-                    Height="40"
-                    FontSize="18"
-                    Margin="277,40,473,40"
-                    Content="Delete profile"/>
+                Height="40"
+                FontSize="15"
+                Margin="70,63,476,17"
+                Content="Delete Profile"
+                    />
             <Button x:Name="play"
-                    Width="150"
-                    Height="40"
-                    FontSize="18"
-                    Margin="482,30,268,30" 
-                    Content="Play"/>
+                Height="40"
+                FontSize="15"
+                Margin="506,9,40,71"
+                Content="Play"
+                    />
             <Button x:Name="exit"
-                    Width="150"
-                    Height="40"
-                    FontSize="18"
-                    Margin="681,30,69,30" 
-                    Content="Exit"/>
+                Height="40"
+                FontSize="15"
+                Margin="506,63,40,17"
+                Content="Exit"
+                    />
         </Grid>
     </Grid>
 </Window>
