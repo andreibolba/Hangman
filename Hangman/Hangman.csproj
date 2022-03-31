@@ -63,6 +63,9 @@
     <Compile Include="View\HangmanLogInView.xaml.cs">
       <DependentUpon>HangmanLogInView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\HangmanSignUpView.xaml.cs">
+      <DependentUpon>HangmanSignUpView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\HangmanModel.cs" />
@@ -93,6 +96,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="View\HangmanLogInView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HangmanSignUpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
