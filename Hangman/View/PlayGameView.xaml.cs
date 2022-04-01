@@ -15,14 +15,13 @@ using System.Windows.Shapes;
 namespace Hangman.View
 {
     /// <summary>
-    /// Interaction logic for HangmanSignUp.xaml
+    /// Interaction logic for PlayGameView.xaml
     /// </summary>
-    public partial class HangmanSignUp : Window
+    public partial class PlayGameView : Window
     {
-        public HangmanSignUp()
+        public PlayGameView()
         {
             InitializeComponent();
         }
-
     }
 }

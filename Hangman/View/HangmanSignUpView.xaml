@@ -64,29 +64,17 @@
 
 
         <Grid Grid.Row="2">
-            <Button x:Name="newProfile"
-                    Height="40"
-                    FontSize="15"
-                    Margin="70,9,476,71"
-                    Content="New Profile"
-                    />
-            <Button x:Name="deleteProfile"
-                Height="40"
-                FontSize="15"
-                Margin="70,63,476,17"
-                Content="Delete Profile"
-                    />
             <Button x:Name="play"
                 Height="40"
                 FontSize="15"
-                Margin="506,9,40,71"
+                Margin="40,9,38,71"
                 Content="Play"
                     />
             <Button x:Name="exit"
                 Height="40"
                 FontSize="15"
-                Margin="506,63,40,17"
-                Content="Exit"
+                Margin="40,63,40,17"
+                Content="Exit" Click="exit_Click"
                     />
         </Grid>
     </Grid>

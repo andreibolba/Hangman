@@ -1,0 +1,86 @@
+﻿<Window x:Class="Hangman.View.PlayGameView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hangman.View"
+        mc:Ignorable="d"
+        Title="Play Game" Height="600" Width="900"
+        Icon="hangman.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Menu x:Name="menu"
+              Grid.Row="0"
+              Height="30">
+            <MenuItem Header="Actions" 
+                      Height="30" 
+                      Width="65"
+                      FontSize="15">
+                <MenuItem Header="New game"/>
+                <MenuItem Header="Open game"/>
+                <MenuItem Header="Save game"/>
+                <Separator/>
+                <MenuItem Header="Statistic"/>
+                <Separator/>
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="Categories" 
+                      Height="30" 
+                      Width="85"
+                      FontSize="15">
+                <MenuItem Header="All categories"/>
+                <MenuItem Header="Cars"/>
+                <MenuItem Header="Movies"/>
+                <MenuItem Header="Cities"/>
+                <MenuItem Header="Computers"/>
+            </MenuItem>
+
+            <MenuItem Header="Help" 
+                      Height="30" 
+                      Width="65"
+                      FontSize="15">
+                <MenuItem Header="Author"/>
+                <Separator/>
+                <MenuItem Header="Facebook"/>
+                <MenuItem Header="Instragram"/>
+                <MenuItem Header="LinkdIn"/>
+                <MenuItem Header="GitHub"/>
+            </MenuItem>
+        </Menu>
+        
+        <Grid x:Name="progress"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="550"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="buttons"
+                  Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+
+        </Grid>
+        <Label x:Name="word"
+               Content="Movies:"
+               Grid.Row="2"
+               FontFamily="Impact"
+               FontSize="35" Margin="48,24,705,26"
+        />
+        <Label x:Name="linesWord"
+               Content="_ _ _ _ _  _ _  _ _  _ _ _  _ _ _ _ _ _"
+               Grid.Row="2"
+               FontFamily="Impact"
+               FontSize="50" Margin="198,10,69,26"
+        />
+
+    </Grid>
+</Window>
