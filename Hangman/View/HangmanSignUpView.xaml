@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hangman.View"
         mc:Ignorable="d"
         Title="Hangmna Sign Up" Height="600" Width="900"
-        Icon="hangman.png">
+        Icon="./image/hangman.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -32,7 +32,7 @@
             <Image Grid.Column="1" Margin="125,20,131,170"
                 >
                 <Image.Source>
-                    <BitmapImage UriSource="userimg1.png"></BitmapImage>
+                    <BitmapImage UriSource="./image/userimg1.png"></BitmapImage>
                 </Image.Source>
             </Image>
 
@@ -74,7 +74,7 @@
                 Height="40"
                 FontSize="15"
                 Margin="40,63,40,17"
-                Content="Exit" Click="exit_Click"
+                Content="Exit" 
                     />
         </Grid>
     </Grid>

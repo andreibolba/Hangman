@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hangman.View"
         mc:Ignorable="d"
         Title="Play Game" Height="600" Width="900"
-        Icon="hangman.png">
+        Icon="./image/hangman.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -52,7 +52,7 @@
                 <MenuItem Header="GitHub"/>
             </MenuItem>
         </Menu>
-        
+
         <Grid x:Name="progress"
               Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -60,13 +60,85 @@
                 <ColumnDefinition Width="550"/>
             </Grid.ColumnDefinitions>
 
+            <Image Grid.Column="0" Margin="31,55,31,63">
+                <Image.Source>
+                    <BitmapImage UriSource="./image/userimg1.png"></BitmapImage>
+                </Image.Source>
+            </Image>
+
+
             <Grid x:Name="buttons"
                   Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+
+
+                <Label Grid.Row="0"
+                   Content="Time left: "
+                   FontSize="25"
+                   FontFamily="Impact" Margin="10,20,433,0" Height="35" VerticalAlignment="Top"
+                       />
+
+                <Image Grid.Row="1" Margin="337,32,100,41">
+                    <Image.Source>
+                        <BitmapImage UriSource="./image/lock.png"></BitmapImage>
+                    </Image.Source>
+                </Image>
+                <Image Grid.Row="1" Margin="63,32,374,41">
+                    <Image.Source>
+                        <BitmapImage UriSource="./image/lock.png"/>
+                    </Image.Source>
+                </Image>
+                <Image Grid.Row="1" Margin="133,32,304,41">
+                    <Image.Source>
+                        <BitmapImage UriSource="./image/lock.png"/>
+                    </Image.Source>
+                </Image>
+                <Image Grid.Row="1" Margin="201,32,236,41">
+                    <Image.Source>
+                        <BitmapImage UriSource="./image/lock.png"/>
+                    </Image.Source>
+                </Image>
+                <Image Grid.Row="1" Margin="269,32,168,41">
+                    <Image.Source>
+                        <BitmapImage UriSource="./image/lock.png"/>
+                    </Image.Source>
+                </Image>
+
+
+                <Button x:Name="A" Content="A" Grid.Row="2" FontSize="25" Margin="10,10,486,170"/>
+                <Button x:Name="B" Content="B" Grid.Row="2" FontSize="25" Margin="80,10,416,170"/>
+                <Button x:Name="C" Content="C" Grid.Row="2" FontSize="25" Margin="146,10,350,170"/>
+                <Button x:Name="D" Content="D" Grid.Row="2" FontSize="25" Margin="216,10,280,170"/>
+                <Button x:Name="E" Content="E" Grid.Row="2" FontSize="25" Margin="282,10,214,170"/>
+                <Button x:Name="F" Content="F" Grid.Row="2" FontSize="25" Margin="352,10,144,170"/>
+                <Button x:Name="G" Content="G" Grid.Row="2" FontSize="25" Margin="418,10,78,170"/>
+                <Button x:Name="H" Content="H" Grid.Row="2" FontSize="25" Margin="488,10,8,170"/>
+                <Button x:Name="I" Content="I" Grid.Row="2" FontSize="25" Margin="10,60,486,121"/>
+                <Button x:Name="J" Content="J" Grid.Row="2" FontSize="25" Margin="80,60,416,121"/>
+                <Button x:Name="K" Content="K" Grid.Row="2" FontSize="25" Margin="146,60,350,121"/>
+                <Button x:Name="L" Content="L" Grid.Row="2" FontSize="25" Margin="216,60,280,121"/>
+                <Button x:Name="M" Content="M" Grid.Row="2" FontSize="25" Margin="282,60,214,121"/>
+                <Button x:Name="N" Content="N" Grid.Row="2" FontSize="25" Margin="352,60,144,121"/>
+                <Button x:Name="O" Content="O" Grid.Row="2" FontSize="25" Margin="418,60,78,121"/>
+                <Button x:Name="P" Content="P" Grid.Row="2" FontSize="25" Margin="488,60,8,121"/>
+                <Button x:Name="Q" Content="Q" Grid.Row="2" FontSize="25" Margin="10,112,486,68"/>
+                <Button x:Name="R" Content="R" Grid.Row="2" FontSize="25" Margin="80,112,416,68"/>
+                <Button x:Name="S" Content="S" Grid.Row="2" FontSize="25" Margin="146,112,350,68"/>
+                <Button x:Name="T" Content="T" Grid.Row="2" FontSize="25" Margin="216,112,280,68"/>
+                <Button x:Name="U" Content="U" Grid.Row="2" FontSize="25" Margin="282,112,214,68"/>
+                <Button x:Name="V" Content="V" Grid.Row="2" FontSize="25" Margin="352,112,144,68"/>
+                <Button x:Name="X" Content="X" Grid.Row="2" FontSize="25" Margin="418,112,78,68"/>
+                <Button x:Name="Y" Content="Y" Grid.Row="2" FontSize="25" Margin="488,112,8,68"/>
+                <Button x:Name="Z" Content="Z" Grid.Row="2" FontSize="25" Margin="248,166,248,14"/>
+
+
+
             </Grid>
+
 
         </Grid>
         <Label x:Name="word"
