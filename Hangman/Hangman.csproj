@@ -60,6 +60,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\HangmanViewModel.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\HangmanLogInView.xaml.cs">
       <DependentUpon>HangmanLogInView.xaml</DependentUpon>
     </Compile>
@@ -119,6 +120,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\image\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\image\stage\gameover.png" />
+    <Resource Include="View\image\stage\life_five.png" />
+    <Resource Include="View\image\stage\life_four.png" />
+    <Resource Include="View\image\stage\life_one.png" />
+    <Resource Include="View\image\stage\life_six.png" />
+    <Resource Include="View\image\stage\life_three.png" />
+    <Resource Include="View\image\stage\life_two.png" />
+    <Resource Include="View\image\stage\part_one.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
