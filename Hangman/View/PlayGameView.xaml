@@ -50,12 +50,12 @@
                       Height="30" 
                       Width="65"
                       FontSize="15">
-                <MenuItem Header="Author"/>
+                <MenuItem Header="Author" Command="{Binding Path=Social}" Click="MenuItemSocial_Click"/>
                 <Separator/>
-                <MenuItem Header="Facebook"/>
-                <MenuItem Header="Instragram"/>
-                <MenuItem Header="LinkdIn"/>
-                <MenuItem Header="GitHub"/>
+                <MenuItem Header="Facebook" Command="{Binding Path=Social}" Click="MenuItemSocial_Click"/>
+                <MenuItem Header="Instagram" Command="{Binding Path=Social}" Click="MenuItemSocial_Click"/>
+                <MenuItem Header="LinkdIn" Command="{Binding Path=Social}" Click="MenuItemSocial_Click"/>
+                <MenuItem Header="GitHub" Command="{Binding Path=Social}" Click="MenuItemSocial_Click"/>
             </MenuItem>
         </Menu>
 

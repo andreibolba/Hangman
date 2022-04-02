@@ -61,6 +61,9 @@
     </Compile>
     <Compile Include="ViewModel\HangmanViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="View\Author.xaml.cs">
+      <DependentUpon>Author.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HangmanLogInView.xaml.cs">
       <DependentUpon>HangmanLogInView.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\Author.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HangmanLogInView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

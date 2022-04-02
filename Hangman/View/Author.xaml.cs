@@ -11,28 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Hangman.ViewModel;
 
 namespace Hangman.View
 {
     /// <summary>
-    /// Interaction logic for PlayGameView.xaml
+    /// Interaction logic for Author.xaml
     /// </summary>
-    public partial class PlayGameView : Window
+    public partial class Author : Window
     {
-        public PlayGameView()
+        public Author()
         {
             InitializeComponent();
-        }
-
-        private void Letter_Click(object sender, RoutedEventArgs e)
-        {
-            HangmanViewModel.m_letter = sender as Button;    
-        }
-
-        private void MenuItemSocial_Click(object sender, RoutedEventArgs e)
-        {
-            HangmanViewModel.m_item = sender as MenuItem;
         }
     }
 }
