@@ -59,6 +59,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tools\Tools.cs" />
     <Compile Include="ViewModel\HangmanViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\Author.xaml.cs">
@@ -137,6 +138,21 @@
     <Resource Include="View\image\stage\life_three.png" />
     <Resource Include="View\image\stage\life_two.png" />
     <Resource Include="View\image\stage\part_one.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Words\allCategories.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Words\cars.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Words\movies.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Words\city.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Words\country.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

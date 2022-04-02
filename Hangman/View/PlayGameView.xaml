@@ -43,7 +43,7 @@
                 <MenuItem Header="Cars"/>
                 <MenuItem Header="Movies"/>
                 <MenuItem Header="Cities"/>
-                <MenuItem Header="Computers"/>
+                <MenuItem Header="Country"/>
             </MenuItem>
 
             <MenuItem Header="Help" 
