@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Hangman.ViewModel;
 
 namespace Hangman.View
 {
@@ -22,6 +23,12 @@ namespace Hangman.View
         public PlayGameView()
         {
             InitializeComponent();
+        }
+
+        private void Letter_Click(object sender, RoutedEventArgs e)
+        {
+            HangmanViewModel.m_letter=sender as Button;
+            
         }
     }
 }
