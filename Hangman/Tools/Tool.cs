@@ -37,6 +37,18 @@ namespace Hangman.Tools
             return photos;
         }
 
+        public static List<string> profileImages()
+        {
+            List<string> photos = new List<string>();
+            photos.Add("./image/users/userimg1.png");
+            photos.Add("./image/users/userimg2.png");
+            photos.Add("./image/users/userimag3.jpg");
+            photos.Add("./image/users/userimg4.png");
+            photos.Add("./image/users/userimg5.png");
+
+            return photos;
+        }
+
         public static string getTextFirstTime(string text)
         {
             string newText = null;

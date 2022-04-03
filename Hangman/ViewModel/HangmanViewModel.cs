@@ -23,10 +23,12 @@ namespace Hangman.ViewModel
         public static List<string> city { get; set; }
         public static List<string> country { get; set; }
         public static List<string> photos { get; set; }
+        public static List<string> profilePhotos { get; set; }
 
         private string word=null;
         private const int lives = 7;
         private int lifeUsed = 0;
+        public static int imgIndex { get; set; }
 
         public static Button m_letter { get; set; }
         public static MenuItem m_item { get; set; }
@@ -36,6 +38,8 @@ namespace Hangman.ViewModel
         private ICommand m_catrories;
         private ICommand m_exit;
         private ICommand m_newPorfile;
+        private ICommand m_prev;
+        private ICommand m_next;
 
 
         public void pressLetter(object parameter)
@@ -121,6 +125,25 @@ namespace Hangman.ViewModel
             MessageBox.Show("Tapa nu se inchide");
         }
 
+        public void nextBtn(object parater)
+        {
+            if(imgIndex == 0)
+                HangmanSignUp.prevBtn.Visibility= Visibility.Visible;
+            if(imgIndex==profilePhotos.Count-2)
+                HangmanSignUp.nextBtn.Visibility= Visibility.Hidden;
+            imgIndex++;
+            HangmanSignUp.setPicture(profilePhotos[imgIndex]);
+        }
+
+        public void prevBtn(object parater)
+        {
+            if (imgIndex == profilePhotos.Count - 2)
+                HangmanSignUp.nextBtn.Visibility = Visibility.Visible;
+            if(imgIndex==1)
+                HangmanSignUp.prevBtn.Visibility = Visibility.Hidden;
+            imgIndex--;
+            HangmanSignUp.setPicture(profilePhotos[imgIndex]);
+        }
 
         public void newProfile(object parater)
         {
@@ -174,6 +197,26 @@ namespace Hangman.ViewModel
                 if (m_newPorfile == null)
                     m_newPorfile = new RelayCommand(newProfile);
                 return m_newPorfile;
+            }
+        }
+
+        public ICommand Next
+        {
+            get
+            {
+                if (m_next == null)
+                    m_next = new RelayCommand(nextBtn);
+                return m_next;
+            }
+        }
+
+        public ICommand Prev
+        {
+            get
+            {
+                if (m_prev == null)
+                    m_prev = new RelayCommand(prevBtn);
+                return m_prev;
             }
         }
     }

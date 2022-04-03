@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:Hangman.View"
         xmlns:vm="clr-namespace:Hangman.ViewModel"
         mc:Ignorable="d"
-        Title="HangmanView" Height="600" Width="900"
-        Icon="./image/hangman.png">
+        Title="HangmanView" Height="630" Width="900"
+        Icon="./image/hangman.png"
+        ResizeMode="NoResize">
     <Window.DataContext>
         <vm:HangmanViewModel/>
     </Window.DataContext>

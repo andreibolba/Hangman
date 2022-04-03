@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hangman.View"
+                xmlns:vm="clr-namespace:Hangman.ViewModel"
         mc:Ignorable="d"
-        Title="Hangmna Sign Up" Height="600" Width="900"
-        Icon="./image/hangman.png">
+        Title="Hangmna Sign Up" Height="630" Width="900"
+        Icon="./image/hangman.png"
+        ResizeMode="NoResize">
+    <Window.DataContext>
+        <vm:HangmanViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -30,10 +35,8 @@
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="1" Margin="125,20,131,170"
-                >
-                <Image.Source>
-                    <BitmapImage UriSource="./image/users/userimg1.png"></BitmapImage>
-                </Image.Source>
+                    Source="./image/users/userimg1.png"
+                    x:Name="profilePicture">
             </Image>
 
             <Button x:Name="prev"
@@ -42,6 +45,7 @@
                     FontSize="15"
                     Content="Prev" 
                     RenderTransformOrigin="0.473,-0.602"
+                    Command="{Binding Prev}"
             />
             <Button x:Name="next"
                 Grid.Column="1" 
@@ -49,6 +53,7 @@
                 FontSize="15"
                 Content="Next" 
                 RenderTransformOrigin="0.473,-0.602"
+                Command="{Binding Next}"
             />
 
             <Label x:Name="inputText"
