@@ -23,6 +23,7 @@ namespace Hangman.ViewModel
         public static List<string> country { get; set; }
 
         private string word=null;
+        private const int lifes = 6;
 
         public static Button m_letter { get; set; }
         public static MenuItem m_item { get; set; }
@@ -39,13 +40,13 @@ namespace Hangman.ViewModel
         public void pressLetter(object parameter)
         {
             string text=m_letter.Content.ToString();
-            if (string.IsNullOrEmpty(text))
-                MessageBox.Show("Tapa");
+            string newText = Tool.oneLetterTry(PlayGameView.label.Content.ToString(), word, text);
+            if (word != newText)    
+                MessageBox.Show("Good job");
             else
-            {
-                MessageBox.Show(text);
-                m_letter.Visibility = Visibility.Hidden;
-            }
+                MessageBox.Show("Tapa\n");
+            m_letter.Visibility = Visibility.Hidden;
+            PlayGameView.label.Content = newText;
         }
 
         public void social(object parater)

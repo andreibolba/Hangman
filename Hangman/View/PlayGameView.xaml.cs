@@ -21,6 +21,7 @@ namespace Hangman.View
     /// </summary>
     public partial class PlayGameView : Window
     {
+        //posibil sa fie schimbata
         public static Label label { get; set; } 
 
         public PlayGameView()
