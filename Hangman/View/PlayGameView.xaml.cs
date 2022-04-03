@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Hangman.ViewModel;
+using Hangman.Tools;
 
 namespace Hangman.View
 {
@@ -20,17 +21,25 @@ namespace Hangman.View
     /// </summary>
     public partial class PlayGameView : Window
     {
+        public static Label label { get; set; } 
+
         public PlayGameView()
         {
             InitializeComponent();
+            HangmanViewModel.allCategories = Tool.readWords("allCategories.txt");
+            HangmanViewModel.cars = Tool.readWords("cars.txt");
+            HangmanViewModel.movies = Tool.readWords("movies.txt");
+            HangmanViewModel.city = Tool.readWords("city.txt");
+            HangmanViewModel.country = Tool.readWords("country.txt");
+            label = linesWord;
         }
 
         private void Letter_Click(object sender, RoutedEventArgs e)
         {
-            HangmanViewModel.m_letter = sender as Button;    
+            HangmanViewModel.m_letter = sender as Button;
         }
 
-        private void MenuItemSocial_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             HangmanViewModel.m_item = sender as MenuItem;
         }

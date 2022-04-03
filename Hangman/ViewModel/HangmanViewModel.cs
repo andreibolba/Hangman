@@ -1,4 +1,5 @@
-﻿using Hangman.View;
+﻿using Hangman.Tools;
+using Hangman.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,25 @@ namespace Hangman.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public static List<string> allCategories { get; set; }
+        public static List<string> cars { get; set; }
+        public static List<string> movies { get; set; }
+        public static List<string> city { get; set; }
+        public static List<string> country { get; set; }
+
+        private string word=null;
+
         public static Button m_letter { get; set; }
         public static MenuItem m_item { get; set; }
         
         private ICommand m_pressLetter;
         private ICommand m_social;
+        private ICommand m_catrories;
 
+        public void RaisePropertyChange(string propertyname)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+        }
 
         public void pressLetter(object parameter)
         {
@@ -59,6 +73,37 @@ namespace Hangman.ViewModel
             }
         }
 
+        public void categories(object parater)
+        {
+            string title = m_item.Header.ToString();
+            switch (title)
+            {
+                case "All Categories":
+                    word = Tool.getWord(allCategories);
+                    MessageBox.Show(word);
+                    break;
+                case "Cars":
+                    word = Tool.getWord(cars);
+                    MessageBox.Show(word);
+                    break;
+                case "City":
+                    word = Tool.getWord(city);
+                    MessageBox.Show(word);
+                    break;
+                case "Country":
+                    word = Tool.getWord(country);
+                    MessageBox.Show(word);
+                    break;
+                case "Movie":
+                    word = Tool.getWord(movies);
+                    MessageBox.Show(word);
+                    break;
+                default:
+                    break;
+            }
+            PlayGameView.label.Content = Tool.getTextFirstTime(word);
+        }
+
         public ICommand PressLetter
         {
             get {
@@ -75,6 +120,16 @@ namespace Hangman.ViewModel
                 if (m_social == null)
                     m_social= new RelayCommand(social);
                 return m_social;
+            }
+        }
+
+        public ICommand Categories
+        {
+            get
+            {
+                if (m_catrories == null)
+                    m_catrories = new RelayCommand(categories);
+                return m_catrories;
             }
         }
     }

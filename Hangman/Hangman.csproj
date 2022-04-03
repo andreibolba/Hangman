@@ -59,7 +59,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tools\Tools.cs" />
+    <Compile Include="Tools\Tool.cs" />
     <Compile Include="ViewModel\HangmanViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\Author.xaml.cs">

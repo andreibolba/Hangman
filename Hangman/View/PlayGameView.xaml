@@ -39,23 +39,23 @@
                       Height="30" 
                       Width="85"
                       FontSize="15">
-                <MenuItem Header="All categories"/>
-                <MenuItem Header="Cars"/>
-                <MenuItem Header="Movies"/>
-                <MenuItem Header="Cities"/>
-                <MenuItem Header="Country"/>
+                <MenuItem Header="All Categories"  Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
+                <MenuItem Header="Cars" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
+                <MenuItem Header="Movie" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
+                <MenuItem Header="City" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
+                <MenuItem Header="Country" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
             </MenuItem>
 
             <MenuItem Header="Help" 
                       Height="30" 
                       Width="65"
                       FontSize="15">
-                <MenuItem Header="Author" Command="{Binding Path=Social}" Click="MenuItemSocial_Click"/>
+                <MenuItem Header="Author" Command="{Binding Path=Social}" Click="MenuItem_Click"/>
                 <Separator/>
-                <MenuItem Header="Facebook" Command="{Binding Path=Social}" Click="MenuItemSocial_Click"/>
-                <MenuItem Header="Instagram" Command="{Binding Path=Social}" Click="MenuItemSocial_Click"/>
-                <MenuItem Header="LinkdIn" Command="{Binding Path=Social}" Click="MenuItemSocial_Click"/>
-                <MenuItem Header="GitHub" Command="{Binding Path=Social}" Click="MenuItemSocial_Click"/>
+                <MenuItem Header="Facebook" Command="{Binding Path=Social}" Click="MenuItem_Click"/>
+                <MenuItem Header="Instagram" Command="{Binding Path=Social}" Click="MenuItem_Click"/>
+                <MenuItem Header="LinkdIn" Command="{Binding Path=Social}" Click="MenuItem_Click"/>
+                <MenuItem Header="GitHub" Command="{Binding Path=Social}" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
 
@@ -147,17 +147,10 @@
 
 
         </Grid>
-        <Label x:Name="word"
-               Content="Movies:"
-               Grid.Row="2"
-               FontFamily="Impact"
-               FontSize="35" Margin="48,24,705,26"
-        />
         <Label x:Name="linesWord"
-               Content="_ _ _ _ _  _ _  _ _  _ _ _  _ _ _ _ _ _"
+               Content=""
                Grid.Row="2"
-               FontFamily="Impact"
-               FontSize="50" Margin="198,10,10,10"
+               FontSize="50" Margin="20,10,10,10"
         />
 
     </Grid>
