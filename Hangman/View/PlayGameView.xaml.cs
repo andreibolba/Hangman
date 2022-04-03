@@ -23,6 +23,7 @@ namespace Hangman.View
     {
         //posibil sa fie schimbata
         public static Label label { get; set; } 
+        public static Image progresPic { get; set; }
 
         public PlayGameView()
         {
@@ -32,7 +33,9 @@ namespace Hangman.View
             HangmanViewModel.movies = Tool.readWords("movies.txt");
             HangmanViewModel.city = Tool.readWords("city.txt");
             HangmanViewModel.country = Tool.readWords("country.txt");
+            HangmanViewModel.photos = Tool.images();
             label = linesWord;
+            progresPic = progressPicture;
         }
 
         private void Letter_Click(object sender, RoutedEventArgs e)
@@ -43,6 +46,12 @@ namespace Hangman.View
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             HangmanViewModel.m_item = sender as MenuItem;
+        }
+
+        public static void setPicture(string path)
+        {
+            Uri resourceUri = new Uri(path, UriKind.Relative);
+            progresPic.Source = new BitmapImage(resourceUri);
         }
     }
 }

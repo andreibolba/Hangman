@@ -66,10 +66,9 @@
                 <ColumnDefinition Width="550"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Margin="31,55,31,63">
-                <Image.Source>
-                    <BitmapImage UriSource="./image/stage/part_one.png"></BitmapImage>
-                </Image.Source>
+            <Image Grid.Column="0" Margin="31,55,31,63"
+                   Source ="./image/stage/part_one.png"
+                   x:Name="progressPicture">
             </Image>
 
 
@@ -137,9 +136,10 @@
                 <Button x:Name="T" Content="T" Grid.Row="2" FontSize="25" Margin="216,112,280,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
                 <Button x:Name="U" Content="U" Grid.Row="2" FontSize="25" Margin="282,112,214,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
                 <Button x:Name="V" Content="V" Grid.Row="2" FontSize="25" Margin="352,112,144,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="X" Content="X" Grid.Row="2" FontSize="25" Margin="418,112,78,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="Y" Content="Y" Grid.Row="2" FontSize="25" Margin="488,112,8,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="Z" Content="Z" Grid.Row="2" FontSize="25" Margin="248,166,248,14" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
+                <Button x:Name="W" Content="W" Grid.Row="2" FontSize="25" Margin="418,112,78,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
+                <Button x:Name="X" Content="X" Grid.Row="2" FontSize="25" Margin="488,112,8,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
+                <Button x:Name="Y" Content="Y" Grid.Row="2" FontSize="25" Margin="216,166,280,14" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
+                <Button x:Name="Z" Content="Z" Grid.Row="2" FontSize="25" Margin="282,166,214,14" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
 
 
 

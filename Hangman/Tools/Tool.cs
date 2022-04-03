@@ -19,6 +19,21 @@ namespace Hangman.Tools
             return words;
         }
 
+        public static List<string> images()
+        {
+            List<string> photos = new List<string>();
+            photos.Add("./image/stage/part_one.png");
+            photos.Add("./image/stage/life_one.png");
+            photos.Add("./image/stage/life_two.png");
+            photos.Add("./image/stage/life_three.png");
+            photos.Add("./image/stage/life_four.png");
+            photos.Add("./image/stage/life_five.png");
+            photos.Add("./image/stage/life_six.png");
+            photos.Add("./image/stage/gameover.png");
+
+            return photos;
+        }
+
         public static string getTextFirstTime(string text)
         {
             string newText = null;
@@ -41,12 +56,15 @@ namespace Hangman.Tools
             return words[index].ToUpper();
         }
 
-        public static string oneLetterTry(string lines,string text,string letter)
+        public static string oneLetterTry(string lines,string text,string letter, ref bool hasChanged)
         {
             string newText = null;
             for (int i = 0; i < text.Length; i++)
                 if (text[i].ToString() == letter)
+                {
                     newText += letter;
+                    hasChanged = true;
+                }
                 else if (text[i].ToString() == " ")
                     newText += " ";
                 else if (lines[i] >= 'A' && lines[i] <= 'Z')

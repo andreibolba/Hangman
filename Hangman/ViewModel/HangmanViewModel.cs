@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace Hangman.ViewModel
 {
@@ -21,9 +22,11 @@ namespace Hangman.ViewModel
         public static List<string> movies { get; set; }
         public static List<string> city { get; set; }
         public static List<string> country { get; set; }
+        public static List <string> photos { get; set; }
 
         private string word=null;
-        private const int lifes = 6;
+        private const int lifes = 7;
+        private int lifeUsed = 0;
 
         public static Button m_letter { get; set; }
         public static MenuItem m_item { get; set; }
@@ -40,11 +43,20 @@ namespace Hangman.ViewModel
         public void pressLetter(object parameter)
         {
             string text=m_letter.Content.ToString();
-            string newText = Tool.oneLetterTry(PlayGameView.label.Content.ToString(), word, text);
-            if (word != newText)    
+            bool hasGuessed = false;
+            string newText = Tool.oneLetterTry(PlayGameView.label.Content.ToString(), word, text,ref hasGuessed);
+            if (hasGuessed == true)
                 MessageBox.Show("Good job");
             else
-                MessageBox.Show("Tapa\n");
+            {
+                MessageBox.Show("You lost a life!");
+                lifeUsed++;
+                PlayGameView.setPicture(photos[lifeUsed]);
+                if(lifeUsed == lifes)
+                {
+                    MessageBox.Show("Game lost");
+                }
+            }
             m_letter.Visibility = Visibility.Hidden;
             PlayGameView.label.Content = newText;
         }
