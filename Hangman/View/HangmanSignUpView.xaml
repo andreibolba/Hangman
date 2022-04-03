@@ -32,7 +32,7 @@
             <Image Grid.Column="1" Margin="125,20,131,170"
                 >
                 <Image.Source>
-                    <BitmapImage UriSource="./image/userimg1.png"></BitmapImage>
+                    <BitmapImage UriSource="./image/users/userimg1.png"></BitmapImage>
                 </Image.Source>
             </Image>
 
@@ -54,10 +54,11 @@
             <Label x:Name="inputText"
                     FontFamily="Impact"
                     FontSize="22"
-                   Content="Choose your username and picture:" Margin="61,64,47,272"/>
+                   Content="Choose your username and picture:" Margin="61,64,47,243"/>
 
             <TextBox x:Name="inputName"
-                     Grid.Row="0" Margin="61,117,27,236"
+                     Grid.Row="0" Margin="61,146,27,192"
+                     FontSize="15"
                      />
 
         </Grid>

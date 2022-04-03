@@ -4,26 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hangman.View"
+        xmlns:vm="clr-namespace:Hangman.ViewModel"
         mc:Ignorable="d"
         Title="HangmanView" Height="600" Width="900"
         Icon="./image/hangman.png">
+    <Window.DataContext>
+        <vm:HangmanViewModel/>
+    </Window.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="11*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
         <Label
-            Grid.Row="0"
             Width="410"
             Height="40"
             FontFamily="Impact"
             FontSize="25"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Content="Welcome to Hangman! Enjoy the game!"/>
+            Content="Welcome to Hangman! Enjoy the game!" Grid.ColumnSpan="2" Margin="245,0,0,0"/>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="450"/>
                 <ColumnDefinition Width="450"/>
@@ -42,12 +49,13 @@
         </Grid>
 
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,384,0,0" Grid.RowSpan="2">
             <Button x:Name="newProfile"
                     Height="40"
                     FontSize="15"
                     Margin="70,9,476,71"
                     Content="New Profile"
+                    Command="{Binding NewProfile}"
                     />
             <Button x:Name="deleteProfile"
                 Height="40"
@@ -66,6 +74,7 @@
                 FontSize="15"
                 Margin="506,63,40,17"
                 Content="Exit"
+                Command="{Binding Exit}"    
                     />
         </Grid>
     </Grid>

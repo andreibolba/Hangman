@@ -34,6 +34,8 @@ namespace Hangman.ViewModel
         private ICommand m_pressLetter;
         private ICommand m_social;
         private ICommand m_catrories;
+        private ICommand m_exit;
+        private ICommand m_newPorfile;
 
 
         public void pressLetter(object parameter)
@@ -114,6 +116,18 @@ namespace Hangman.ViewModel
             PlayGameView.label.Content = Tool.getTextFirstTime(word);
         }
 
+        public void closeApp(object parater)
+        {
+            MessageBox.Show("Tapa nu se inchide");
+        }
+
+
+        public void newProfile(object parater)
+        {
+            HangmanSignUp hangman=  new HangmanSignUp();
+            hangman.Show();
+        }
+
         public ICommand PressLetter
         {
             get {
@@ -140,6 +154,26 @@ namespace Hangman.ViewModel
                 if (m_catrories == null)
                     m_catrories = new RelayCommand(categories);
                 return m_catrories;
+            }
+        }
+
+        public ICommand Exit
+        {
+            get
+            {
+                if (m_exit == null)
+                    m_exit = new RelayCommand(closeApp);
+                return m_exit;
+            }
+        }
+
+        public ICommand NewProfile
+        {
+            get
+            {
+                if (m_newPorfile == null)
+                    m_newPorfile = new RelayCommand(newProfile);
+                return m_newPorfile;
             }
         }
     }
