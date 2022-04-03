@@ -45,20 +45,17 @@ namespace Hangman.ViewModel
             string text=m_letter.Content.ToString();
             bool hasGuessed = false;
             string newText = Tool.oneLetterTry(PlayGameView.label.Content.ToString(), word, text,ref hasGuessed);
-            if (hasGuessed == true)
-                MessageBox.Show("Good job");
-            else
+            if (hasGuessed == false)
             {
-                MessageBox.Show("You lost a life!");
                 lifeUsed++;
                 PlayGameView.setPicture(photos[lifeUsed]);
-                if(lifeUsed == lifes)
-                {
-                    MessageBox.Show("Game lost");
-                }
             }
             m_letter.Visibility = Visibility.Hidden;
             PlayGameView.label.Content = newText;
+            if (newText == word)
+                MessageBox.Show("You won one game!");
+            if (lifeUsed == lifes)
+                MessageBox.Show("Game lost!\nThe word was: "+word);
         }
 
         public void social(object parater)
@@ -93,23 +90,18 @@ namespace Hangman.ViewModel
             {
                 case "All Categories":
                     word = Tool.getWord(allCategories);
-                    MessageBox.Show(word);
                     break;
                 case "Cars":
                     word = Tool.getWord(cars);
-                    MessageBox.Show(word);
                     break;
                 case "City":
                     word = Tool.getWord(city);
-                    MessageBox.Show(word);
                     break;
                 case "Country":
                     word = Tool.getWord(country);
-                    MessageBox.Show(word);
                     break;
                 case "Movie":
                     word = Tool.getWord(movies);
-                    MessageBox.Show(word);
                     break;
                 default:
                     break;
