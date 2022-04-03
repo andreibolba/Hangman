@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +11,7 @@ namespace Hangman.Tools
 {
     public class Tool
     {
+
         public static List<string> readWords(string fileName)
         {
             string file= @"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Words\"+fileName;
@@ -72,6 +75,23 @@ namespace Hangman.Tools
                 else
                     newText += "-";
             return newText;
+        }
+
+        public static List<Users> readUsers()
+        {
+            StreamReader r = new StreamReader(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\users.json");
+            string jsonString = r.ReadToEnd();
+            List<Users> users = new List<Users>();
+            users = JsonConvert.DeserializeObject<List<Users>>(jsonString);
+            return users;
+        }
+
+        public static string getPath(List<Users> users, string id)
+        {
+            foreach (Users user in users)
+                if (user.ID == id)
+                    return user.PicPath;
+            return null;
         }
     }
 }

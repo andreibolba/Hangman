@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hangman.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,28 @@ namespace Hangman.View
     /// </summary>
     public partial class HangmanView : Window
     {
+        public List<Users> users { get; set; }
         public HangmanView()
         {
             InitializeComponent();
+            users=Tool.readUsers();
+            foreach (Users user in users)
+            {
+                ListViewItem listViewItem = new ListViewItem();
+                listViewItem.Tag = user.ID;
+                listViewItem.Content = user.UserName;
+                listViewItem.MouseDoubleClick += listViewDoubleClick;
+                usernames.Items.Add(listViewItem);
+            }
+        }
+
+        private void listViewDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem item=sender as ListViewItem;
+            string id=item.Tag as string;
+            string path = Tool.getPath(users, id);
+            Uri resourceUri = new Uri(path, UriKind.Relative);
+            picture.Source = new BitmapImage(resourceUri);
         }
     }
 }

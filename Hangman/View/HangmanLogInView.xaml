@@ -30,22 +30,13 @@
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="1" Margin="125,20,131,170"
-                >
-                <Image.Source>
-                    <BitmapImage UriSource="./image/userimg1.png"></BitmapImage>
-                </Image.Source>
+                x:Name="picture">
             </Image>
 
             <ListView x:Name="usernames"
                 Margin="53,29,49,41"
                 FontFamily="Impact"
                 FontSize="25">
-                <ListViewItem Content="Coffie"></ListViewItem>
-                <ListViewItem Content="Tea"></ListViewItem>
-                <ListViewItem Content="Orange Juice"></ListViewItem>
-                <ListViewItem Content="Milk"></ListViewItem>
-                <ListViewItem Content="Iced Tea"></ListViewItem>
-                <ListViewItem Content="Mango Shake"></ListViewItem>
             </ListView>
 
         </Grid>
