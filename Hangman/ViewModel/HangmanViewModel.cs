@@ -22,10 +22,10 @@ namespace Hangman.ViewModel
         public static List<string> movies { get; set; }
         public static List<string> city { get; set; }
         public static List<string> country { get; set; }
-        public static List <string> photos { get; set; }
+        public static List<string> photos { get; set; }
 
         private string word=null;
-        private const int lifes = 7;
+        private const int lives = 7;
         private int lifeUsed = 0;
 
         public static Button m_letter { get; set; }
@@ -35,27 +35,32 @@ namespace Hangman.ViewModel
         private ICommand m_social;
         private ICommand m_catrories;
 
-        public void RaisePropertyChange(string propertyname)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
-        }
 
         public void pressLetter(object parameter)
         {
-            string text=m_letter.Content.ToString();
-            bool hasGuessed = false;
-            string newText = Tool.oneLetterTry(PlayGameView.label.Content.ToString(), word, text,ref hasGuessed);
-            if (hasGuessed == false)
+            if (string.IsNullOrEmpty(word))
             {
-                lifeUsed++;
-                PlayGameView.setPicture(photos[lifeUsed]);
+                MessageBox.Show("Choose a word");
             }
-            m_letter.Visibility = Visibility.Hidden;
-            PlayGameView.label.Content = newText;
-            if (newText == word)
-                MessageBox.Show("You won one game!");
-            if (lifeUsed == lifes)
-                MessageBox.Show("Game lost!\nThe word was: "+word);
+            else
+            {
+                string text = m_letter.Content.ToString();
+                bool hasGuessed = false;
+                string newText = Tool.oneLetterTry(PlayGameView.label.Content.ToString(), word, text, ref hasGuessed);
+                if (hasGuessed == false)
+                {
+                    lifeUsed++;
+                    PlayGameView.setPicture(photos[lifeUsed]);
+                }
+                m_letter.Visibility = Visibility.Hidden;
+                PlayGameView.label.Content = newText;
+                if (newText == word)
+                {
+                    MessageBox.Show("You won one game!");
+                }
+                if (lifeUsed == lives)
+                    MessageBox.Show("Game lost!\nThe word was: " + word);
+            }
         }
 
         public void social(object parater)
