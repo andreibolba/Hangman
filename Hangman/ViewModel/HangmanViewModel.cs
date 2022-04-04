@@ -1,8 +1,10 @@
 ﻿using Hangman.Tools;
 using Hangman.View;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,7 @@ namespace Hangman.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public static HangmanSignUp hangman;
         public static List<string> allCategories { get; set; }
         public static List<string> cars { get; set; }
         public static List<string> movies { get; set; }
@@ -40,6 +43,7 @@ namespace Hangman.ViewModel
         private ICommand m_newPorfile;
         private ICommand m_prev;
         private ICommand m_next;
+        private ICommand m_create;
 
 
         public void pressLetter(object parameter)
@@ -147,8 +151,26 @@ namespace Hangman.ViewModel
 
         public void newProfile(object parater)
         {
-            HangmanSignUp hangman=  new HangmanSignUp();
+            hangman=  new HangmanSignUp();
             hangman.Show();
+        }
+
+        public void create(object paramter)
+        {
+            string name = HangmanSignUp.user.Text.ToString();
+            if (string.IsNullOrEmpty(name))
+                MessageBox.Show("Enter a name!");
+            else{
+                User users = new User();
+                users.UserName = name;
+                users.PicPath = Tool.getProfilePath(HangmanSignUp.image.Source.ToString());
+                users.ID = Tool.getId();
+                users.GameWon = "0";
+                users.GamePlayed = "0";
+                Tool.addUser(users);
+                MessageBox.Show("User create succesfully!");
+                hangman.Close();
+            }
         }
 
         public ICommand PressLetter
@@ -217,6 +239,16 @@ namespace Hangman.ViewModel
                 if (m_prev == null)
                     m_prev = new RelayCommand(prevBtn);
                 return m_prev;
+            }
+        }
+
+        public ICommand Create
+        {
+            get
+            {
+                if (m_create == null)
+                    m_create = new RelayCommand(create);
+                return m_create;
             }
         }
     }

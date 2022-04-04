@@ -22,7 +22,7 @@ namespace Hangman.View
     public partial class HangmanSignUp : Window
     {
         public static Image image { get; set; }
-
+        public static TextBox user { get; set; }
         public static Button nextBtn { get; set; }
         public static Button prevBtn { get; set; }
         public HangmanSignUp()
@@ -34,6 +34,7 @@ namespace Hangman.View
             image = profilePicture;
             nextBtn = next;
             prevBtn = prev;
+            user = inputName;
         }
 
         public static void setPicture(string path)

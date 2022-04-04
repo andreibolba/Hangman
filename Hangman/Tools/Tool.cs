@@ -11,7 +11,7 @@ namespace Hangman.Tools
 {
     public class Tool
     {
-
+        public static List<User> users;
         public static List<string> readWords(string fileName)
         {
             string file= @"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Words\"+fileName;
@@ -89,21 +89,53 @@ namespace Hangman.Tools
             return newText;
         }
 
-        public static List<Users> readUsers()
+        public static List<User> readUsers()
         {
             StreamReader r = new StreamReader(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\users.json");
             string jsonString = r.ReadToEnd();
-            List<Users> users = new List<Users>();
-            users = JsonConvert.DeserializeObject<List<Users>>(jsonString);
+            users = new List<User>();
+            users = JsonConvert.DeserializeObject<List<User>>(jsonString);
             return users;
         }
 
-        public static string getPath(List<Users> users, string id)
+        public static void addUser(User user)
         {
-            foreach (Users user in users)
+            users.Add(user);
+            string json = JsonConvert.SerializeObject(users.ToArray());
+            System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\users.json", json);
+        }
+
+        public static string getPath(List<User> users, string id)
+        {
+            foreach (User user in users)
                 if (user.ID == id)
                     return user.PicPath;
             return null;
+        }
+
+        public static string getProfilePath(string path)
+        {
+            int slesh = 3,index=path.Length-1;
+            string newPath = null;
+            while(index>=0&&slesh!=0)
+            {
+                if (path[index] == '/')
+                    slesh--;
+                index--;
+            }
+            newPath = path.Substring(index+1);
+            newPath = "." + newPath;
+            return newPath;
+        }
+
+        public static string getId()
+        {
+            if (users.Count == 0)
+                return "0";
+            int index=users.Count-1;
+            int id = Int32.Parse(users[index].ID);
+            id++;
+            return id.ToString();
         }
     }
 }

@@ -20,12 +20,12 @@ namespace Hangman.View
     /// </summary>
     public partial class HangmanView : Window
     {
-        public List<Users> users { get; set; }
+        public List<User> users { get; set; }
         public HangmanView()
         {
             InitializeComponent();
             users=Tool.readUsers();
-            foreach (Users user in users)
+            foreach (User user in users)
             {
                 ListViewItem listViewItem = new ListViewItem();
                 listViewItem.Tag = user.ID;

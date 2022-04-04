@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hangman.Tools
 {
-    public class Users
+    public class User
     {
         public string ID { get; set; }
         public string UserName { get; set; }
@@ -14,7 +14,7 @@ namespace Hangman.Tools
         public string GamePlayed { get; set; }
         public string GameWon { get; set; }
 
-        public Users()
+        public User()
         {
             ID = null;
             UserName = null;
@@ -23,7 +23,7 @@ namespace Hangman.Tools
             GameWon = null;
         }
 
-        public Users(string id,string userName,string picPath, string gamePlayed, string gameWon)
+        public User(string id,string userName,string picPath, string gamePlayed, string gameWon)
         {
             ID = id;
             UserName = userName;
