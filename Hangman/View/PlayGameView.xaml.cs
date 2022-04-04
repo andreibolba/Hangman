@@ -34,6 +34,7 @@ namespace Hangman.View
             HangmanViewModel.city = Tool.readWords("city.txt");
             HangmanViewModel.country = Tool.readWords("country.txt");
             HangmanViewModel.photos = Tool.images();
+            currentUser.Content = "Hello " + HangmanViewModel.currentUser.UserName.ToString();
             label = linesWord;
             progresPic = progressPicture;
         }

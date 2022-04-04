@@ -70,6 +70,7 @@
                 FontSize="15"
                 Margin="506,9,40,71"
                 Content="Play"
+                Command="{Binding Play}"
                     />
             <Button x:Name="exit"
                 Height="40"

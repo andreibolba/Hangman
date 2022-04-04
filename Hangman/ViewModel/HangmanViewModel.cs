@@ -18,8 +18,7 @@ namespace Hangman.ViewModel
     public class HangmanViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public static HangmanSignUp hangman;
+        public static User currentUser { get; private set; }
         public static List<string> allCategories { get; set; }
         public static List<string> cars { get; set; }
         public static List<string> movies { get; set; }
@@ -28,6 +27,7 @@ namespace Hangman.ViewModel
         public static List<string> photos { get; set; }
         public static List<string> profilePhotos { get; set; }
 
+        public static HangmanSignUp hangman;
         private string word=null;
         private const int lives = 7;
         private int lifeUsed = 0;
@@ -45,6 +45,7 @@ namespace Hangman.ViewModel
         private ICommand m_next;
         private ICommand m_create;
         private ICommand m_delete;
+        private ICommand m_play;
 
 
         public void pressLetter(object parameter)
@@ -189,6 +190,22 @@ namespace Hangman.ViewModel
             }
         }
 
+        public void playGame(object parameter)
+        {
+            if(HangmanView.isSelected == false)
+            {
+                MessageBox.Show("You dont have choosen any user!");
+            }
+            else
+            {
+                string id = HangmanView.selectedItem.Tag.ToString();
+                currentUser = Tool.getUser(id);
+                PlayGameView playGameView = new PlayGameView();
+                playGameView.Show();
+
+            }
+        }
+
         public ICommand PressLetter
         {
             get {
@@ -275,6 +292,16 @@ namespace Hangman.ViewModel
                 if (m_delete == null)
                     m_delete = new RelayCommand(deleteProfile);
                 return m_delete;
+            }
+        }
+
+        public ICommand Play
+        {
+            get
+            {
+                if(m_play == null)
+                    m_play=new RelayCommand(playGame);
+                return m_play;
             }
         }
     }
