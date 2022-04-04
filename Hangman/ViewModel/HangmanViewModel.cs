@@ -44,6 +44,7 @@ namespace Hangman.ViewModel
         private ICommand m_prev;
         private ICommand m_next;
         private ICommand m_create;
+        private ICommand m_delete;
 
 
         public void pressLetter(object parameter)
@@ -155,6 +156,21 @@ namespace Hangman.ViewModel
             hangman.Show();
         }
 
+        public void deleteProfile(object parameter)
+        {
+            if(HangmanView.isSelected == false)
+            {
+                MessageBox.Show("You dont have choosen any user!");
+            }
+            else
+            {
+                string id=HangmanView.selectedItem.Tag.ToString();
+                User deleteUser = Tool.getUser(id);
+                Tool.deleteUser(deleteUser);
+                MessageBox.Show("User delete succesfull!");
+            }
+        }
+
         public void create(object paramter)
         {
             string name = HangmanSignUp.user.Text.ToString();
@@ -249,6 +265,16 @@ namespace Hangman.ViewModel
                 if (m_create == null)
                     m_create = new RelayCommand(create);
                 return m_create;
+            }
+        }
+
+        public ICommand Delete
+        {
+            get
+            {
+                if (m_delete == null)
+                    m_delete = new RelayCommand(deleteProfile);
+                return m_delete;
             }
         }
     }

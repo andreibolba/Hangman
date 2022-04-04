@@ -137,5 +137,20 @@ namespace Hangman.Tools
             id++;
             return id.ToString();
         }
+
+        public static User getUser(string id)
+        {
+            foreach (User user in users)
+                if (user.ID == id)
+                    return user;
+            return null;
+        }
+
+        public static void deleteUser(User user)
+        {
+            users.Remove(user);
+            string json = JsonConvert.SerializeObject(users.ToArray());
+            System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\users.json", json);
+        }
     }
 }

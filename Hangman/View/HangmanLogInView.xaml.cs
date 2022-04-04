@@ -20,19 +20,29 @@ namespace Hangman.View
     /// </summary>
     public partial class HangmanView : Window
     {
-        public List<User> users { get; set; }
+        public static List<User> users { get; set; }
+
+        public static ListView usersListView { get; set; }
+
+        public static ListViewItem selectedItem { get; set; }
+
+        public static bool isSelected { get; set; }
+
         public HangmanView()
         {
             InitializeComponent();
             users=Tool.readUsers();
+            usersListView = usernames;
             foreach (User user in users)
             {
                 ListViewItem listViewItem = new ListViewItem();
                 listViewItem.Tag = user.ID;
                 listViewItem.Content = user.UserName;
                 listViewItem.MouseDoubleClick += listViewDoubleClick;
-                usernames.Items.Add(listViewItem);
+                usersListView.Items.Add(listViewItem);
             }
+            selectedItem=new ListViewItem();
+            isSelected=false;
         }
 
         private void listViewDoubleClick(object sender, MouseButtonEventArgs e)
@@ -42,6 +52,8 @@ namespace Hangman.View
             string path = Tool.getPath(users, id);
             Uri resourceUri = new Uri(path, UriKind.Relative);
             picture.Source = new BitmapImage(resourceUri);
+            selectedItem = item;
+            isSelected=true;
         }
     }
 }
