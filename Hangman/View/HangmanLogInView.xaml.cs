@@ -36,7 +36,7 @@ namespace Hangman.View
             foreach (User user in users)
             {
                 ListViewItem listViewItem = new ListViewItem();
-                listViewItem.Tag = user.ID;
+                listViewItem.Tag = user.ID.ToString();
                 listViewItem.Content = user.UserName;
                 listViewItem.MouseDoubleClick += listViewDoubleClick;
                 usersListView.Items.Add(listViewItem);
@@ -49,7 +49,9 @@ namespace Hangman.View
         {
             ListViewItem item=sender as ListViewItem;
             string id=item.Tag as string;
-            string path = Tool.getPath(users, id);
+            int ID = Int32.Parse(id);
+            //MessageBox.Show(ID.ToString());
+            string path = Tool.getPath(users, ID);
             Uri resourceUri = new Uri(path, UriKind.Relative);
             picture.Source = new BitmapImage(resourceUri);
             selectedItem = item;

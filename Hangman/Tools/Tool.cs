@@ -105,7 +105,7 @@ namespace Hangman.Tools
             System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\users.json", json);
         }
 
-        public static string getPath(List<User> users, string id)
+        public static string getPath(List<User> users, int id)
         {
             foreach (User user in users)
                 if (user.ID == id)
@@ -128,17 +128,16 @@ namespace Hangman.Tools
             return newPath;
         }
 
-        public static string getId()
+        public static int getId()
         {
             if (users.Count == 0)
-                return "0";
+                return 0;
             int index=users.Count-1;
-            int id = Int32.Parse(users[index].ID);
-            id++;
-            return id.ToString();
+            int id = users[index].ID;
+            return ++id;
         }
 
-        public static User getUser(string id)
+        public static User getUser(int id)
         {
             foreach (User user in users)
                 if (user.ID == id)

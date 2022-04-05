@@ -166,7 +166,8 @@ namespace Hangman.ViewModel
             else
             {
                 string id=HangmanView.selectedItem.Tag.ToString();
-                User deleteUser = Tool.getUser(id);
+                int ID = Int32.Parse(id);
+                User deleteUser = Tool.getUser(ID);
                 Tool.deleteUser(deleteUser);
                 MessageBox.Show("User delete succesfull!");
             }
@@ -182,8 +183,8 @@ namespace Hangman.ViewModel
                 users.UserName = name;
                 users.PicPath = Tool.getProfilePath(HangmanSignUp.image.Source.ToString());
                 users.ID = Tool.getId();
-                users.GameWon = "0";
-                users.GamePlayed = "0";
+                users.GameWon = 0;
+                users.GamePlayed = 0;
                 Tool.addUser(users);
                 MessageBox.Show("User create succesfully!");
                 hangman.Close();
@@ -199,7 +200,8 @@ namespace Hangman.ViewModel
             else
             {
                 string id = HangmanView.selectedItem.Tag.ToString();
-                currentUser = Tool.getUser(id);
+                int ID = Int32.Parse(id);
+                currentUser = Tool.getUser(ID);
                 PlayGameView playGameView = new PlayGameView();
                 playGameView.Show();
 

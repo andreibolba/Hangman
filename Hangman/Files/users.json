@@ -1,44 +1,23 @@
 [
   {
-    "ID": "0",
+    "ID": 0,
     "UserName": "Andrei",
     "PicPath": "./image/users/userimg4.png",
-    "GamePlayed": "0",
-    "GameWon": "0"
+    "GamePlayed": 0,
+    "GameWon": 0
   },
   {
-    "ID": "1",
+    "ID": 1,
     "UserName": "Melania",
-    "PicPath": "./image/users/userimg1.png",
-    "GamePlayed": "0",
-    "GameWon": "0"
-  },
-  {
-    "ID": "2",
-    "UserName": "Iulia",
     "PicPath": "./image/users/userimg2.png",
-    "GamePlayed": "0",
-    "GameWon": "0"
+    "GamePlayed": 0,
+    "GameWon": 0
   },
   {
-    "ID": "3",
-    "UserName": "Catalin",
-    "PicPath": "./image/users/userimg5.png",
-    "GamePlayed": "0",
-    "GameWon": "0"
-  },
-  {
-    "ID": "4",
-    "UserName": "Tom",
-    "PicPath": "./image/users/userimg4.png",
-    "GamePlayed": "0",
-    "GameWon": "0"
-  },
-  {
-    "ID": "5",
-    "UserName": "Jerry",
-    "PicPath": "./image/users/userimg5.png",
-    "GamePlayed": "0",
-    "GameWon": "0"
+    "ID": 2,
+    "UserName": "Fefi",
+    "PicPath": "./image/users/userimg1.png",
+    "GamePlayed": 0,
+    "GameWon": 0
   }
 ]

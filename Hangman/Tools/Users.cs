@@ -8,22 +8,22 @@ namespace Hangman.Tools
 {
     public class User
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string UserName { get; set; }
         public string PicPath { get; set; }
-        public string GamePlayed { get; set; }
-        public string GameWon { get; set; }
+        public int GamePlayed { get; set; }
+        public int GameWon { get; set; }
 
         public User()
         {
-            ID = null;
+            ID = -1;
             UserName = null;
             PicPath = null;
-            GamePlayed = null;
-            GameWon = null;
+            GamePlayed = -1;
+            GameWon = -1;
         }
 
-        public User(string id,string userName,string picPath, string gamePlayed, string gameWon)
+        public User(int id,string userName,string picPath, int gamePlayed, int gameWon)
         {
             ID = id;
             UserName = userName;
@@ -34,7 +34,7 @@ namespace Hangman.Tools
 
         public override string ToString()
         {
-            return UserName+" "+GamePlayed+" "+GameWon;
+            return UserName+" "+GamePlayed.ToString()+" "+GameWon.ToString();
         }
     }
 }
