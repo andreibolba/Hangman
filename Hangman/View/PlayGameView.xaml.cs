@@ -21,22 +21,17 @@ namespace Hangman.View
     /// </summary>
     public partial class PlayGameView : Window
     {
-        //posibil sa fie schimbata
-        public static Label label { get; set; } 
         public static Image progresPic { get; set; }
 
         public PlayGameView()
         {
             InitializeComponent();
-            HangmanViewModel.allCategories = Tool.readWords("allCategories.txt");
-            HangmanViewModel.cars = Tool.readWords("cars.txt");
-            HangmanViewModel.movies = Tool.readWords("movies.txt");
-            HangmanViewModel.city = Tool.readWords("city.txt");
-            HangmanViewModel.country = Tool.readWords("country.txt");
-            HangmanViewModel.photos = Tool.images();
-            currentUser.Content = "Hello " + HangmanViewModel.currentUser.UserName.ToString();
-            label = linesWord;
-            progresPic = progressPicture;
+            PlayGameViewModel.allCategories = Tool.readWords("allCategories.txt");
+            PlayGameViewModel.cars = Tool.readWords("cars.txt");
+            PlayGameViewModel.movies = Tool.readWords("movies.txt");
+            PlayGameViewModel.city = Tool.readWords("city.txt");
+            PlayGameViewModel.country = Tool.readWords("country.txt");
+            //currentUser.Content = "Hello " + HangmanViewModel.currentUser.UserName.ToString();
         }
 
         private void Letter_Click(object sender, RoutedEventArgs e)

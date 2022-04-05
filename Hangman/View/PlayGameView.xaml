@@ -10,7 +10,7 @@
         Icon="./image/hangman.png"
         ResizeMode="NoResize">
     <Window.DataContext>
-        <vm:HangmanViewModel/>
+        <vm:PlayGameViewModel/>
     </Window.DataContext>
 
     <Grid>
@@ -39,7 +39,7 @@
                       Height="30" 
                       Width="85"
                       FontSize="15">
-                <MenuItem Header="All Categories"  Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
+                <MenuItem Header="All categories" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
                 <MenuItem Header="Cars" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
                 <MenuItem Header="Movie" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
                 <MenuItem Header="City" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
@@ -154,7 +154,7 @@
 
         </Grid>
         <Label x:Name="linesWord"
-               Content=""
+               Content="{Binding labelContent}"
                Grid.Row="2"
                FontSize="50" Margin="20,10,10,10"
         />

@@ -30,6 +30,7 @@ namespace Hangman.View
 
         public HangmanView()
         {
+            //observebal
             InitializeComponent();
             users=Tool.readUsers();
             usersListView = usernames;

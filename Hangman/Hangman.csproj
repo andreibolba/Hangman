@@ -63,8 +63,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tools\Tool.cs" />
-    <Compile Include="Tools\Users.cs" />
+    <Compile Include="Model\Users.cs" />
+    <Compile Include="ViewModel\BaseVM.cs" />
     <Compile Include="ViewModel\HangmanViewModel.cs" />
+    <Compile Include="ViewModel\PlayGameViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\Author.xaml.cs">
       <DependentUpon>Author.xaml</DependentUpon>

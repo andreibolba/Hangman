@@ -58,20 +58,20 @@ namespace Hangman.ViewModel
             {
                 string text = m_letter.Content.ToString();
                 bool hasGuessed = false;
-                string newText = Tool.oneLetterTry(PlayGameView.label.Content.ToString(), word, text, ref hasGuessed);
+                //string newText = Tool.oneLetterTry(PlayGameView.label.Content.ToString(), word, text, ref hasGuessed);
                 if (hasGuessed == false)
                 {
                     lifeUsed++;
                     PlayGameView.setPicture(photos[lifeUsed]);
                 }
                 m_letter.Visibility = Visibility.Hidden;
-                PlayGameView.label.Content = newText;
+                /*PlayGameView.label.Content = newText;
                 if (newText == word)
                 {
                     MessageBox.Show("You won one game!");
                 }
                 if (lifeUsed == lives)
-                    MessageBox.Show("Game lost!\nThe word was: " + word);
+                    MessageBox.Show("Game lost!\nThe word was: " + word);*/
             }
         }
 
@@ -123,7 +123,7 @@ namespace Hangman.ViewModel
                 default:
                     break;
             }
-            PlayGameView.label.Content = Tool.getTextFirstTime(word);
+            //PlayGameView.label.Content = Tool.getTextFirstTime(word);
         }
 
         public void closeApp(object parater)
