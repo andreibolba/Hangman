@@ -36,12 +36,13 @@ namespace Hangman.View
 
         private void Letter_Click(object sender, RoutedEventArgs e)
         {
-            HangmanViewModel.m_letter = sender as Button;
+            HangmanLogInViewModel.m_letter = sender as Button;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            HangmanViewModel.m_item = sender as MenuItem;
+            HangmanLogInViewModel.m_item = sender as MenuItem;
+            PlayGameViewModel.Header=(sender as MenuItem).Header.ToString();
         }
 
         public static void setPicture(string path)

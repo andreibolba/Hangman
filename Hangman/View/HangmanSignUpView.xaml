@@ -10,7 +10,7 @@
         Icon="./image/hangman.png"
         ResizeMode="NoResize">
     <Window.DataContext>
-        <vm:HangmanViewModel/>
+        <vm:HangmanLogInViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>

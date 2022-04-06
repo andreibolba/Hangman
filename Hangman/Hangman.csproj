@@ -65,7 +65,8 @@
     <Compile Include="Tools\Tool.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
-    <Compile Include="ViewModel\HangmanViewModel.cs" />
+    <Compile Include="ViewModel\HangmanSignUpViewModel.cs" />
+    <Compile Include="ViewModel\HangmanLogInViewModel.cs" />
     <Compile Include="ViewModel\PlayGameViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\Author.xaml.cs">

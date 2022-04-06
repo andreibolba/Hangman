@@ -39,7 +39,7 @@
                       Height="30" 
                       Width="85"
                       FontSize="15">
-                <MenuItem Header="All categories" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
+                <MenuItem Header="All categories" Command="{Binding Path=Categories}"  Click="MenuItem_Click"/>
                 <MenuItem Header="Cars" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
                 <MenuItem Header="Movie" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
                 <MenuItem Header="City" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>

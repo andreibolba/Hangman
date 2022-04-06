@@ -9,9 +9,9 @@
         Title="HangmanView" Height="630" Width="900"
         Icon="./image/hangman.png"
         ResizeMode="NoResize">
-    <Window.DataContext>
-        <vm:HangmanViewModel/>
-    </Window.DataContext>
+    
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="14*"/>
@@ -56,28 +56,28 @@
                     FontSize="15"
                     Margin="70,9,476,71"
                     Content="New Profile"
-                    Command="{Binding NewProfile}"
+                   
                     />
             <Button x:Name="deleteProfile"
                 Height="40"
                 FontSize="15"
                 Margin="70,63,476,17"
                 Content="Delete Profile"
-                Command="{Binding Delete}"
+                
                     />
             <Button x:Name="play"
                 Height="40"
                 FontSize="15"
                 Margin="506,9,40,71"
                 Content="Play"
-                Command="{Binding Play}"
+                
                     />
             <Button x:Name="exit"
                 Height="40"
                 FontSize="15"
                 Margin="506,63,40,17"
                 Content="Exit"
-                Command="{Binding Exit}"    
+                   
                     />
         </Grid>
     </Grid>

@@ -1,6 +1,7 @@
 ﻿using Hangman.Tools;
 using Hangman.View;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Hangman.ViewModel
@@ -8,7 +9,7 @@ namespace Hangman.ViewModel
     class PlayGameViewModel: BaseVM
     {
 
-        public string Header { get; set; }
+        public static string Header { get; set; }
         public string labelContent { get; set; }
 
         public static List<string> allCategories { get; set; }
@@ -17,6 +18,8 @@ namespace Hangman.ViewModel
         public static List<string> city { get; set; }
         public static List<string> country { get; set; }
 
+        //public static string imageSourse { get; set; }
+
         private string word;
 
         private ICommand m_social;
@@ -24,6 +27,7 @@ namespace Hangman.ViewModel
 
         public void social(object parater)
         {
+
             switch (Header)
             {
                 case "LinkdIn":
@@ -49,6 +53,7 @@ namespace Hangman.ViewModel
 
         public void categories(object parater)
         {
+            MessageBox.Show(Header);
             switch (Header)
             {
                 case "All Categories":
