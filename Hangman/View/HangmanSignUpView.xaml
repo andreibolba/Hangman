@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hangman.View"
-                xmlns:vm="clr-namespace:Hangman.ViewModel"
+        xmlns:vm="clr-namespace:Hangman.ViewModel"
         mc:Ignorable="d"
         Title="Hangmna Sign Up" Height="630" Width="900"
         Icon="./image/hangman.png"

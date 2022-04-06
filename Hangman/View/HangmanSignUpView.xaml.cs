@@ -29,8 +29,6 @@ namespace Hangman.View
         {
             InitializeComponent();
             prev.Visibility= Visibility.Hidden;
-            HangmanLogInViewModel.profilePhotos = Tool.profileImages();
-            HangmanLogInViewModel.imgIndex = 0;
             image = profilePicture;
             nextBtn = next;
             prevBtn = prev;

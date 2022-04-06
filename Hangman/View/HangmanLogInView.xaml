@@ -9,9 +9,11 @@
         Title="HangmanView" Height="630" Width="900"
         Icon="./image/hangman.png"
         ResizeMode="NoResize">
-    
-    
-    
+
+    <Window.DataContext>
+        <vm:PlayGameViewModel/>
+    </Window.DataContext>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="14*"/>
