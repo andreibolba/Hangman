@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -150,6 +151,16 @@ namespace Hangman.Tools
             users.Remove(user);
             string json = JsonConvert.SerializeObject(users.ToArray());
             System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\users.json", json);
+        }
+
+        public static ObservableCollection<string> getUsernames()
+        {
+            readUsers();
+            ObservableCollection<string> usernames=new ObservableCollection<string>();
+            foreach(User user in users)
+                usernames.Add(user.UserName);
+            return usernames;
+
         }
     }
 }

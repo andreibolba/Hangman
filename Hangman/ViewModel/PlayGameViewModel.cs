@@ -18,8 +18,6 @@ namespace Hangman.ViewModel
         public static List<string> city { get; set; }
         public static List<string> country { get; set; }
 
-        //public static string imageSourse { get; set; }
-
         private string word;
 
         private ICommand m_social;

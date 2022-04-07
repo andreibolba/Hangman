@@ -11,7 +11,7 @@
         ResizeMode="NoResize">
 
     <Window.DataContext>
-        <vm:PlayGameViewModel/>
+        <vm:HangmanLogInViewModel/>
     </Window.DataContext>
 
     <Grid>
@@ -46,7 +46,8 @@
             <ListView x:Name="usernames"
                 Margin="53,29,49,41"
                 FontFamily="Impact"
-                FontSize="25">
+                FontSize="25"
+                ItemsSource="{Binding usernames}">
             </ListView>
 
         </Grid>
@@ -58,7 +59,7 @@
                     FontSize="15"
                     Margin="70,9,476,71"
                     Content="New Profile"
-                   
+                    Command="{Binding NewProfile}"
                     />
             <Button x:Name="deleteProfile"
                 Height="40"

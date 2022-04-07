@@ -10,7 +10,7 @@
         Icon="./image/hangman.png"
         ResizeMode="NoResize">
     <Window.DataContext>
-        <vm:HangmanLogInViewModel/>
+        <vm:HangmanSignUpViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -35,7 +35,7 @@
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="1" Margin="125,20,131,170"
-                    Source="./image/users/userimg1.png"
+                    Source="{Binding imagePath}"
                     x:Name="profilePicture">
             </Image>
 
@@ -62,8 +62,9 @@
                    Content="Choose your username and picture:" Margin="61,64,47,243"/>
 
             <TextBox x:Name="inputName"
-                     Grid.Row="0" Margin="61,146,27,228"
+                     Grid.Row="0" Margin="61,146,27,207"
                      FontSize="15"
+                     Text="{Binding inputName}"
                      />
 
         </Grid>
