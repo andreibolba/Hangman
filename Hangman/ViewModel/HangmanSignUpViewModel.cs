@@ -14,13 +14,15 @@ namespace Hangman.ViewModel
 
         public HangmanSignUpViewModel()
         {
-            path = Tool.images();
+            path = Tool.profileImages();
             index = 0;
+            imagePath = path[index];
         }
 
         public List<string> path { get; set; }
         public int index;
         public string imagePath { get; set; }
+
         public string inputName { get; set; }
 
         private ICommand m_create;
@@ -34,7 +36,18 @@ namespace Hangman.ViewModel
 
         public void next(object paramater)
         {
-
+            MessageBox.Show(index.ToString());
+            if(index==path.Count-1)
+            {
+                MessageBox.Show("Ultima imagine");
+            }
+            else
+            {
+                index++;
+                imagePath = path[index];
+                //to add to setter
+                OnPropertyChanged("imagePath");
+            }
         }
 
         public void prev(object paramater)
