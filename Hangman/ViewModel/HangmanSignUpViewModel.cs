@@ -17,12 +17,12 @@ namespace Hangman.ViewModel
             path = Tool.profileImages();
             index = 0;
             imagePath = path[index];
-            nextVisibility = true;
-            prevVisibility = false;
+            nextVisibility = "Visible";
+            prevVisibility = "Hidden";
         }
 
-        public bool nextVisibility { get; set; }
-        public bool prevVisibility { get; set; }
+        public string nextVisibility { get; set; }
+        public string prevVisibility { get; set; }
 
         public List<string> path { get; set; }
         public int index;
@@ -36,21 +36,29 @@ namespace Hangman.ViewModel
 
         public void create(object parameter)
         {
-            MessageBox.Show(inputName);
+            if (string.IsNullOrEmpty(inputName))
+                MessageBox.Show("No name entered!");
+            else
+            {
+                User user=new User(Tool.getId(),inputName,imagePath);
+                MessageBox.Show(user.ToString());
+            }
         }
 
         public void next(object paramater)
         {
             if(index==path.Count-1)
             {
-                MessageBox.Show("Ultima imagine");
+                nextVisibility = "Hidden";
+                OnPropertyChanged("nextVisibility");
             }
             else
             {
                 index++;
                 imagePath = path[index];
-                //to add to setter
+                prevVisibility = "Visible";
                 OnPropertyChanged("imagePath");
+                OnPropertyChanged("prevVisibility");
             }
         }
 
@@ -58,15 +66,19 @@ namespace Hangman.ViewModel
         {
             if (index == 0)
             {
-                MessageBox.Show("Prima imagine");
+                prevVisibility = "Hidden";
+                OnPropertyChanged("prevVisibility");
             }
             else
             {
                 index--;
                 imagePath = path[index];
+                nextVisibility = "Visible";
                 OnPropertyChanged("imagePath");
+                OnPropertyChanged("nextVisibility");
             }
         }
+
 
         public ICommand Next
         {

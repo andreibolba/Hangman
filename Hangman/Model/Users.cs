@@ -23,18 +23,18 @@ namespace Hangman.Tools
             GameWon = -1;
         }
 
-        public User(int id,string userName,string picPath, int gamePlayed, int gameWon)
+        public User(int id,string userName,string picPath)
         {
             ID = id;
             UserName = userName;
             PicPath = picPath;
-            GamePlayed = gamePlayed;
-            GameWon = gameWon;
+            GamePlayed = 0;
+            GameWon = 0;
         }
 
         public override string ToString()
         {
-            return UserName+" "+GamePlayed.ToString()+" "+GameWon.ToString();
+            return ID.ToString()+" "+UserName+" "+PicPath+" "+GamePlayed.ToString()+" "+GameWon.ToString();
         }
     }
 }

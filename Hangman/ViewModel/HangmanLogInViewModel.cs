@@ -16,7 +16,6 @@ namespace Hangman.ViewModel
         public HangmanLogInViewModel()
         {
             usernames = Tool.getUsernames();
-
         }
 
         public ObservableCollection<string> usernames { get; set; }

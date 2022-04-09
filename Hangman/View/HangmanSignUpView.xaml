@@ -46,6 +46,7 @@
                     Content="Prev" 
                     RenderTransformOrigin="0.473,-0.602"
                     Command="{Binding Prev}"
+                    Visibility="{Binding prevVisibility}"
             />
             <Button x:Name="next"
                 Grid.Column="1" 
@@ -54,6 +55,7 @@
                 Content="Next" 
                 RenderTransformOrigin="0.473,-0.602"
                 Command="{Binding Next}"
+                Visibility="{Binding nextVisibility}"
             />
 
             <Label x:Name="inputText"

@@ -21,11 +21,9 @@ namespace Hangman.View
     /// </summary>
     public partial class HangmanSignUp : Window
     {
-        public static TextBox user { get; set; }
         public HangmanSignUp()
         {
             InitializeComponent();
-            user = inputName;
         }
 
     }
