@@ -26,11 +26,12 @@ namespace Hangman.View
         public HangmanView()
         {
             InitializeComponent();
-            
         }
 
         private void listViewDoubleClick(object sender, MouseButtonEventArgs e)
         {
         }
+
+
     }
 }

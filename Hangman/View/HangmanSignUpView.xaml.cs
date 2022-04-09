@@ -26,5 +26,9 @@ namespace Hangman.View
             InitializeComponent();
         }
 
+        private void exitApp(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

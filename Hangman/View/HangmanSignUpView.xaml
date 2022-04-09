@@ -79,12 +79,14 @@
                 Margin="40,9,38,71"
                 Content="Create"
                 Command="{Binding Create}"
-                    />
+                Click="exitApp"    
+                />
             <Button x:Name="exit"
                 Height="40"
                 FontSize="15"
                 Margin="40,63,40,17"
-                Content="Exit" 
+                Content="Exit"
+                Click="exitApp"
                 />
         </Grid>
     </Grid>

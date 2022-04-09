@@ -26,5 +26,26 @@
     "PicPath": "./image/users/userimag3.jpg",
     "GamePlayed": 0,
     "GameWon": 0
+  },
+  {
+    "ID": 4,
+    "UserName": "Tom",
+    "PicPath": "./image/users/userimg4.png",
+    "GamePlayed": 0,
+    "GameWon": 0
+  },
+  {
+    "ID": 5,
+    "UserName": "Jerry",
+    "PicPath": "./image/users/userimg5.png",
+    "GamePlayed": 0,
+    "GameWon": 0
+  },
+  {
+    "ID": 6,
+    "UserName": "Marian",
+    "PicPath": "./image/users/userimg1.png",
+    "GamePlayed": 0,
+    "GameWon": 0
   }
 ]

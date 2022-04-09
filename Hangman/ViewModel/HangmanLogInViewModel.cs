@@ -18,7 +18,7 @@ namespace Hangman.ViewModel
             usernames = Tool.getUsernames();
         }
 
-        public ObservableCollection<string> usernames { get; set; }
+        public static ObservableCollection<string> usernames { get; set; }
 
         private ICommand m_newProfile;
 
