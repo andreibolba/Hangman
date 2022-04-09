@@ -66,14 +66,14 @@
                 FontSize="15"
                 Margin="70,63,476,17"
                 Content="Delete Profile"
-                
+                Command="{Binding DeleteProfile}"
                     />
             <Button x:Name="play"
                 Height="40"
                 FontSize="15"
                 Margin="506,9,40,71"
                 Content="Play"
-                
+                Command="{Binding Play}"
                     />
             <Button x:Name="exit"
                 Height="40"

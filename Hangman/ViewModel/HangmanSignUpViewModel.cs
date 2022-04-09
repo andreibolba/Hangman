@@ -44,7 +44,7 @@ namespace Hangman.ViewModel
                 Tool.addUser(new User(Tool.getId(), inputName, imagePath));
             }
         }
-
+        // TODO: make it works good
         public void next(object paramater)
         {
             if(index==path.Count-1)
