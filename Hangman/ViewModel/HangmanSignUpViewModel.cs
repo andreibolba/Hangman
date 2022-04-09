@@ -17,7 +17,12 @@ namespace Hangman.ViewModel
             path = Tool.profileImages();
             index = 0;
             imagePath = path[index];
+            nextVisibility = true;
+            prevVisibility = false;
         }
+
+        public bool nextVisibility { get; set; }
+        public bool prevVisibility { get; set; }
 
         public List<string> path { get; set; }
         public int index;
@@ -36,7 +41,6 @@ namespace Hangman.ViewModel
 
         public void next(object paramater)
         {
-            MessageBox.Show(index.ToString());
             if(index==path.Count-1)
             {
                 MessageBox.Show("Ultima imagine");
@@ -52,7 +56,16 @@ namespace Hangman.ViewModel
 
         public void prev(object paramater)
         {
-
+            if (index == 0)
+            {
+                MessageBox.Show("Prima imagine");
+            }
+            else
+            {
+                index--;
+                imagePath = path[index];
+                OnPropertyChanged("imagePath");
+            }
         }
 
         public ICommand Next

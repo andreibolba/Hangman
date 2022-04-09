@@ -22,9 +22,11 @@ namespace Hangman.View
     public partial class HangmanView : Window
     {
 
+
         public HangmanView()
         {
             InitializeComponent();
+            
         }
 
         private void listViewDoubleClick(object sender, MouseButtonEventArgs e)

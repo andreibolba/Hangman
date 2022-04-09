@@ -21,24 +21,11 @@ namespace Hangman.View
     /// </summary>
     public partial class HangmanSignUp : Window
     {
-        public static Image image { get; set; }
         public static TextBox user { get; set; }
-        public static Button nextBtn { get; set; }
-        public static Button prevBtn { get; set; }
         public HangmanSignUp()
         {
             InitializeComponent();
-            prev.Visibility= Visibility.Hidden;
-            image = profilePicture;
-            nextBtn = next;
-            prevBtn = prev;
             user = inputName;
-        }
-
-        public static void setPicture(string path)
-        {
-            Uri resourceUri = new Uri(path, UriKind.Relative);
-            image.Source = new BitmapImage(resourceUri);
         }
 
     }
