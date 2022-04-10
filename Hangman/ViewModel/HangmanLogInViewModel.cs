@@ -38,7 +38,7 @@ namespace Hangman.ViewModel
                 MessageBox.Show("No user selected!");
             else
             {
-                PlayGameView gameView = new PlayGameView();
+                PlayGameView gameView = new PlayGameView(Tool.getUser(itemIndex));
                 gameView.Show();
             }
 

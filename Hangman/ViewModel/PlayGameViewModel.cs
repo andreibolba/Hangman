@@ -8,9 +8,14 @@ namespace Hangman.ViewModel
 {
     class PlayGameViewModel: BaseVM
     {
-
+        public PlayGameViewModel()
+        {
+            userText = "Hello " + currentUser.UserName + "!";
+        }
+        public static User currentUser { get; set; }
         public static string Header { get; set; }
         public string labelContent { get; set; }
+        public string userText { get; set; }
 
         public static List<string> allCategories { get; set; }
         public static List<string> cars { get; set; }

@@ -21,32 +21,15 @@ namespace Hangman.View
     /// </summary>
     public partial class PlayGameView : Window
     {
-        public static Image progresPic { get; set; }
-
-        public PlayGameView()
+        public PlayGameView(User user)
         {
+            PlayGameViewModel.currentUser = user;
             InitializeComponent();
             PlayGameViewModel.allCategories = Tool.readWords("allCategories.txt");
             PlayGameViewModel.cars = Tool.readWords("cars.txt");
             PlayGameViewModel.movies = Tool.readWords("movies.txt");
             PlayGameViewModel.city = Tool.readWords("city.txt");
             PlayGameViewModel.country = Tool.readWords("country.txt");
-            //currentUser.Content = "Hello " + HangmanViewModel.currentUser.UserName.ToString();
-        }
-
-        private void Letter_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-        public static void setPicture(string path)
-        {
-            Uri resourceUri = new Uri(path, UriKind.Relative);
-            progresPic.Source = new BitmapImage(resourceUri);
         }
     }
 }

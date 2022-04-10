@@ -38,24 +38,25 @@
             <MenuItem Header="Categories" 
                       Height="30" 
                       Width="85"
-                      FontSize="15">
-                <MenuItem Header="All categories" Command="{Binding Path=Categories}"  Click="MenuItem_Click"/>
-                <MenuItem Header="Cars" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
-                <MenuItem Header="Movie" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
-                <MenuItem Header="City" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
-                <MenuItem Header="Country" Command="{Binding Path=Categories}" Click="MenuItem_Click"/>
+                      FontSize="15"
+                      >
+                <MenuItem Header="All categories" Command="{Binding Path=Categories}"  />
+                <MenuItem Header="Cars" Command="{Binding Path=Categories}"/>
+                <MenuItem Header="Movie" Command="{Binding Path=Categories}" />
+                <MenuItem Header="City" Command="{Binding Path=Categories}" />
+                <MenuItem Header="Country" Command="{Binding Path=Categories}" />
             </MenuItem>
 
             <MenuItem Header="Help" 
                       Height="30" 
                       Width="65"
                       FontSize="15">
-                <MenuItem Header="Author" Command="{Binding Path=Social}" Click="MenuItem_Click"/>
+                <MenuItem Header="Author" Command="{Binding Path=Social}" />
                 <Separator/>
-                <MenuItem Header="Facebook" Command="{Binding Path=Social}" Click="MenuItem_Click"/>
-                <MenuItem Header="Instagram" Command="{Binding Path=Social}" Click="MenuItem_Click"/>
-                <MenuItem Header="LinkdIn" Command="{Binding Path=Social}" Click="MenuItem_Click"/>
-                <MenuItem Header="GitHub" Command="{Binding Path=Social}" Click="MenuItem_Click"/>
+                <MenuItem Header="Facebook" Command="{Binding Path=Social}" />
+                <MenuItem Header="Instagram" Command="{Binding Path=Social}" />
+                <MenuItem Header="LinkdIn" Command="{Binding Path=Social}" />
+                <MenuItem Header="GitHub" Command="{Binding Path=Social}" />
             </MenuItem>
         </Menu>
 
@@ -67,7 +68,7 @@
             </Grid.ColumnDefinitions>
 
             <Label x:Name="currentUser"
-                   Content="Hello "
+                   Content="{Binding userText}"
                    FontSize="25" 
                    FontFamily="Impact"
                    Margin="10,10,98,405"/>
@@ -120,32 +121,32 @@
                 </Image>
 
 
-                <Button x:Name="A" Content="A" Grid.Row="2" FontSize="25" Margin="10,10,486,170" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="B" Content="B" Grid.Row="2" FontSize="25" Margin="80,10,416,170" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="C" Content="C" Grid.Row="2" FontSize="25" Margin="146,10,350,170" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="D" Content="D" Grid.Row="2" FontSize="25" Margin="216,10,280,170" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="E" Content="E" Grid.Row="2" FontSize="25" Margin="282,10,214,170" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="F" Content="F" Grid.Row="2" FontSize="25" Margin="352,10,144,170" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="G" Content="G" Grid.Row="2" FontSize="25" Margin="418,10,78,170" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="H" Content="H" Grid.Row="2" FontSize="25" Margin="488,10,8,170" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="I" Content="I" Grid.Row="2" FontSize="25" Margin="10,60,486,121" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="J" Content="J" Grid.Row="2" FontSize="25" Margin="80,60,416,121" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="K" Content="K" Grid.Row="2" FontSize="25" Margin="146,60,350,121" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="L" Content="L" Grid.Row="2" FontSize="25" Margin="216,60,280,121" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="M" Content="M" Grid.Row="2" FontSize="25" Margin="282,60,214,121" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="N" Content="N" Grid.Row="2" FontSize="25" Margin="352,60,144,121" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="O" Content="O" Grid.Row="2" FontSize="25" Margin="418,60,78,121" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="P" Content="P" Grid.Row="2" FontSize="25" Margin="488,60,8,121" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="Q" Content="Q" Grid.Row="2" FontSize="25" Margin="10,112,486,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="R" Content="R" Grid.Row="2" FontSize="25" Margin="80,112,416,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="S" Content="S" Grid.Row="2" FontSize="25" Margin="146,112,350,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="T" Content="T" Grid.Row="2" FontSize="25" Margin="216,112,280,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="U" Content="U" Grid.Row="2" FontSize="25" Margin="282,112,214,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="V" Content="V" Grid.Row="2" FontSize="25" Margin="352,112,144,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="W" Content="W" Grid.Row="2" FontSize="25" Margin="418,112,78,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="X" Content="X" Grid.Row="2" FontSize="25" Margin="488,112,8,68" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="Y" Content="Y" Grid.Row="2" FontSize="25" Margin="216,166,280,14" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
-                <Button x:Name="Z" Content="Z" Grid.Row="2" FontSize="25" Margin="282,166,214,14" Command="{Binding Path=PressLetter}" Click="Letter_Click"/>
+                <Button x:Name="A" Content="A" Grid.Row="2" FontSize="25" Margin="10,10,486,170" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="B" Content="B" Grid.Row="2" FontSize="25" Margin="80,10,416,170" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="C" Content="C" Grid.Row="2" FontSize="25" Margin="146,10,350,170" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="D" Content="D" Grid.Row="2" FontSize="25" Margin="216,10,280,170" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="E" Content="E" Grid.Row="2" FontSize="25" Margin="282,10,214,170" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="F" Content="F" Grid.Row="2" FontSize="25" Margin="352,10,144,170" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="G" Content="G" Grid.Row="2" FontSize="25" Margin="418,10,78,170" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="H" Content="H" Grid.Row="2" FontSize="25" Margin="488,10,8,170" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="I" Content="I" Grid.Row="2" FontSize="25" Margin="10,60,486,121" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="J" Content="J" Grid.Row="2" FontSize="25" Margin="80,60,416,121" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="K" Content="K" Grid.Row="2" FontSize="25" Margin="146,60,350,121" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="L" Content="L" Grid.Row="2" FontSize="25" Margin="216,60,280,121" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="M" Content="M" Grid.Row="2" FontSize="25" Margin="282,60,214,121" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="N" Content="N" Grid.Row="2" FontSize="25" Margin="352,60,144,121" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="O" Content="O" Grid.Row="2" FontSize="25" Margin="418,60,78,121" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="P" Content="P" Grid.Row="2" FontSize="25" Margin="488,60,8,121" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="Q" Content="Q" Grid.Row="2" FontSize="25" Margin="10,112,486,68" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="R" Content="R" Grid.Row="2" FontSize="25" Margin="80,112,416,68" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="S" Content="S" Grid.Row="2" FontSize="25" Margin="146,112,350,68" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="T" Content="T" Grid.Row="2" FontSize="25" Margin="216,112,280,68" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="U" Content="U" Grid.Row="2" FontSize="25" Margin="282,112,214,68" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="V" Content="V" Grid.Row="2" FontSize="25" Margin="352,112,144,68" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="W" Content="W" Grid.Row="2" FontSize="25" Margin="418,112,78,68" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="X" Content="X" Grid.Row="2" FontSize="25" Margin="488,112,8,68" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="Y" Content="Y" Grid.Row="2" FontSize="25" Margin="216,166,280,14" Command="{Binding Path=PressLetter}"  />
+                <Button x:Name="Z" Content="Z" Grid.Row="2" FontSize="25" Margin="282,166,214,14" Command="{Binding Path=PressLetter}"  />
 
 
 
