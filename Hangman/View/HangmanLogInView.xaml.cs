@@ -32,6 +32,9 @@ namespace Hangman.View
         {
         }
 
-
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

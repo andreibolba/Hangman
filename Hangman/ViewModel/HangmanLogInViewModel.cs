@@ -16,9 +16,11 @@ namespace Hangman.ViewModel
         public HangmanLogInViewModel()
         {
             usernames = Tool.getUsernames();
+            itemIndex = -1;
         }
 
         public static ObservableCollection<string> usernames { get; set; }
+        public int itemIndex { get; set; }
 
         private ICommand m_newProfile;
         private ICommand m_deleteProfile;
@@ -32,13 +34,26 @@ namespace Hangman.ViewModel
 
         public void play(object parameter)
         {
-            PlayGameView gameView=new PlayGameView();
-            gameView.Show();
+            if (itemIndex == -1)
+                MessageBox.Show("No user selected!");
+            else
+            {
+                PlayGameView gameView = new PlayGameView();
+                gameView.Show();
+            }
+
         }
 
         public void deleteProfile(object parameter)
         {
-            MessageBox.Show("Delete Profile");
+            if (itemIndex == -1)
+                MessageBox.Show("No user selected!");
+            else
+            {
+                Tool.deleteUser(Tool.getUser(itemIndex));
+                usernames.RemoveAt(itemIndex);
+                MessageBox.Show("Users deleted succesfully");
+            }
         }
 
         public ICommand Play

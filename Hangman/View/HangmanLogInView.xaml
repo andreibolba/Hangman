@@ -43,11 +43,14 @@
                 x:Name="picture">
             </Image>
 
-            <ListView x:Name="usernames"
+            <ListView SelectedIndex="{Binding itemIndex}"
+                x:Name="usernames"
                 Margin="53,29,49,41"
                 FontFamily="Impact"
                 FontSize="25"
-                ItemsSource="{Binding usernames}">
+                ItemsSource="{Binding usernames}"
+                
+                >
             </ListView>
 
         </Grid>
@@ -80,7 +83,7 @@
                 FontSize="15"
                 Margin="506,63,40,17"
                 Content="Exit"
-                   
+                Click="exit_Click"   
                     />
         </Grid>
     </Grid>
