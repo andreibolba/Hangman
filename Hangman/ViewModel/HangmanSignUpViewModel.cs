@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Hangman.ViewModel
 {
-    class HangmanSignUpViewModel:BaseVM
+    class HangmanSignUpViewModel : BaseVM
     {
 
         public HangmanSignUpViewModel()
@@ -44,39 +44,37 @@ namespace Hangman.ViewModel
                 Tool.addUser(new User(Tool.getId(), inputName, imagePath));
             }
         }
-        // TODO: make it works good
+
         public void next(object paramater)
         {
-            if(index==path.Count-1)
+            if (index + 1 == path.Count - 1)
             {
                 nextVisibility = "Hidden";
                 OnPropertyChanged("nextVisibility");
             }
-            else
-            {
-                index++;
-                imagePath = path[index];
-                prevVisibility = "Visible";
-                OnPropertyChanged("imagePath");
-                OnPropertyChanged("prevVisibility");
-            }
+
+            index++;
+            imagePath = path[index];
+            prevVisibility = "Visible";
+            OnPropertyChanged("imagePath");
+            OnPropertyChanged("prevVisibility");
+
         }
 
         public void prev(object paramater)
         {
-            if (index == 0)
+            if (index - 1 == 0)
             {
                 prevVisibility = "Hidden";
+
                 OnPropertyChanged("prevVisibility");
             }
-            else
-            {
-                index--;
-                imagePath = path[index];
-                nextVisibility = "Visible";
-                OnPropertyChanged("imagePath");
-                OnPropertyChanged("nextVisibility");
-            }
+            index--;
+            imagePath = path[index];
+            nextVisibility = "Visible";
+            OnPropertyChanged("imagePath");
+            OnPropertyChanged("nextVisibility");
+
         }
 
 
@@ -94,7 +92,7 @@ namespace Hangman.ViewModel
         {
             get
             {
-                if(m_prev == null)
+                if (m_prev == null)
                     m_prev = new RelayCommand(prev);
                 return m_prev;
             }
@@ -102,11 +100,11 @@ namespace Hangman.ViewModel
 
         public ICommand Create
         {
-            get 
+            get
             {
                 if (m_create == null)
                     m_create = new RelayCommand(create);
-                return m_create; 
+                return m_create;
             }
         }
     }
