@@ -74,7 +74,7 @@
                    Margin="10,10,98,405"/>
 
             <Image Grid.Column="0" Margin="31,55,31,63"
-                   Source ="./image/stage/part_one.png"
+                   Source ="{Binding currentStage}"
                    x:Name="progressPicture">
             </Image>
 

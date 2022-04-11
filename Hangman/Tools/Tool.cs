@@ -146,6 +146,14 @@ namespace Hangman.Tools
             return new User();
         }
 
+        public static User getUserByUsername(string username)
+        {
+            foreach (User user in users)
+                if (user.UserName == username)
+                    return user;
+            return new User();
+        }
+
         public static void deleteUser(User user)
         {
             users.Remove(user);

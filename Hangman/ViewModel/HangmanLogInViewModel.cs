@@ -31,7 +31,8 @@ namespace Hangman.ViewModel
             set
             {
                 ItemIndex = value;
-                picPath = Tool.getUser(itemIndex).PicPath;
+                if(itemIndex!=-1)
+                    picPath = Tool.getUserByUsername(usernames[itemIndex]).PicPath;
                 OnPropertyChanged("picPath");
             }
         }
@@ -52,7 +53,7 @@ namespace Hangman.ViewModel
                 MessageBox.Show("No user selected!");
             else
             {
-                PlayGameView gameView = new PlayGameView(Tool.getUser(itemIndex));
+                PlayGameView gameView = new PlayGameView(Tool.getUserByUsername(usernames[itemIndex]));
                 gameView.Show();
             }
 
@@ -64,7 +65,7 @@ namespace Hangman.ViewModel
                 MessageBox.Show("No user selected!");
             else
             {
-                Tool.deleteUser(Tool.getUser(itemIndex));
+                Tool.deleteUser(Tool.getUserByUsername(usernames[itemIndex]));
                 usernames.RemoveAt(itemIndex);
                 MessageBox.Show("Users deleted succesfully");
             }
