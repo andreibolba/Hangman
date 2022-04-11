@@ -1,6 +1,8 @@
-﻿using Hangman.Tools;
+﻿using Hangman.Model;
+using Hangman.Tools;
 using Hangman.View;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 
@@ -12,6 +14,7 @@ namespace Hangman.ViewModel
         {
             userText = "Hello " + currentUser.UserName + "!";
         }
+
         public static User currentUser { get; set; }
         public static string Header { get; set; }
         public string labelContent { get; set; }

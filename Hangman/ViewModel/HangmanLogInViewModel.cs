@@ -17,10 +17,24 @@ namespace Hangman.ViewModel
         {
             usernames = Tool.getUsernames();
             itemIndex = -1;
+            picPath = null;
         }
 
         public static ObservableCollection<string> usernames { get; set; }
-        public int itemIndex { get; set; }
+        public string picPath { get; set; }
+        private int ItemIndex;
+        public int itemIndex {
+            get
+            {
+                return ItemIndex;
+            }
+            set
+            {
+                ItemIndex = value;
+                picPath = Tool.getUser(itemIndex).PicPath;
+                OnPropertyChanged("picPath");
+            }
+        }
 
         private ICommand m_newProfile;
         private ICommand m_deleteProfile;

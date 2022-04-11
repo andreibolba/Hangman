@@ -40,7 +40,8 @@
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="1" Margin="125,20,131,170"
-                x:Name="picture">
+                x:Name="picture"
+                   Source="{Binding picPath}">
             </Image>
 
             <ListView SelectedIndex="{Binding itemIndex}"

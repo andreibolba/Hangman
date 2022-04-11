@@ -21,6 +21,13 @@
     "GameWon": 0
   },
   {
+    "ID": 3,
+    "UserName": "Test",
+    "PicPath": "./image/users/userimg1.png",
+    "GamePlayed": 0,
+    "GameWon": 0
+  },
+  {
     "ID": 4,
     "UserName": "Tom",
     "PicPath": "./image/users/userimg4.png",

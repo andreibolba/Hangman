@@ -143,7 +143,7 @@ namespace Hangman.Tools
             foreach (User user in users)
                 if (user.ID == id)
                     return user;
-            return null;
+            return new User();
         }
 
         public static void deleteUser(User user)
