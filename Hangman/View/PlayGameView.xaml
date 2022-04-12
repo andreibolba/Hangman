@@ -40,11 +40,11 @@
                       Width="85"
                       FontSize="15"
                       >
-                <MenuItem Header="All categories" Command="{Binding Path=Categories}" CommandParameter="All Categories"/>
-                <MenuItem Header="Cars" Command="{Binding Path=Categories}" CommandParameter="Cars"/>
-                <MenuItem Header="Movie" Command="{Binding Path=Categories}" CommandParameter="Movie"/>
-                <MenuItem Header="City" Command="{Binding Path=Categories}"  CommandParameter="City"/>
-                <MenuItem Header="Country" Command="{Binding Path=Categories}" CommandParameter="Country"/>
+                <MenuItem Header="All categories" Command="{Binding Path=Categories}" CommandParameter="allCategories.txt"/>
+                <MenuItem Header="Cars" Command="{Binding Path=Categories}" CommandParameter="cars.txt"/>
+                <MenuItem Header="Movie" Command="{Binding Path=Categories}" CommandParameter="movies.txt"/>
+                <MenuItem Header="City" Command="{Binding Path=Categories}"  CommandParameter="city.txt"/>
+                <MenuItem Header="Country" Command="{Binding Path=Categories}" CommandParameter="country.txt"/>
             </MenuItem>
 
             <MenuItem Header="Help" 

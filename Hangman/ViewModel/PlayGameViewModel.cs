@@ -21,12 +21,6 @@ namespace Hangman.ViewModel
         public string userText { get; set; }
         public string currentStage { get; set; }
 
-        public static List<string> allCategories { get; set; }
-        public static List<string> cars { get; set; }
-        public static List<string> movies { get; set; }
-        public static List<string> city { get; set; }
-        public static List<string> country { get; set; }
-
         private string word;
 
         private ICommand m_social;
@@ -61,26 +55,7 @@ namespace Hangman.ViewModel
         public void categories(object parater)
         {
             string header=parater.ToString();
-            switch (header)
-            {
-                case "All Categories":
-                    word = Tool.getWord(allCategories);
-                    break;
-                case "Cars":
-                    word = Tool.getWord(cars);
-                    break;
-                case "City":
-                    word = Tool.getWord(city);
-                    break;
-                case "Country":
-                    word = Tool.getWord(country);
-                    break;
-                case "Movie":
-                    word = Tool.getWord(movies);
-                    break;
-                default:
-                    break;
-            }
+            word=Tool.getStartWord(header);
             labelContent = Tool.getTextFirstTime(word);
             OnPropertyChanged("labelContent");
         }

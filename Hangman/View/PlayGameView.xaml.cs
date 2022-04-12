@@ -25,11 +25,6 @@ namespace Hangman.View
         {
             PlayGameViewModel.currentUser = user;
             InitializeComponent();
-            PlayGameViewModel.allCategories = Tool.readWords("allCategories.txt");
-            PlayGameViewModel.cars = Tool.readWords("cars.txt");
-            PlayGameViewModel.movies = Tool.readWords("movies.txt");
-            PlayGameViewModel.city = Tool.readWords("city.txt");
-            PlayGameViewModel.country = Tool.readWords("country.txt");
         }
     }
 }

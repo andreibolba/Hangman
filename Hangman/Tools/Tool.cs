@@ -13,14 +13,17 @@ namespace Hangman.Tools
     public class Tool
     {
         public static List<User> users;
-        public static List<string> readWords(string fileName)
+
+        public static string getStartWord(string fileName)
         {
-            string file= @"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Words\"+fileName;
+            string file = @"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Words\" + fileName;
             string[] lines = System.IO.File.ReadAllLines(file);
             List<string> words = new List<string>();
             foreach (string line in lines)
                 words.Add(line);
-            return words;
+            Random random = new Random();
+            int index = random.Next(words.Count);
+            return words[index].ToUpper();
         }
 
         public static List<string> images()
@@ -63,13 +66,6 @@ namespace Hangman.Tools
                     newText += "-";
             }
             return newText;
-        }
-
-        public static string getWord(List<string> words)
-        {
-            Random random = new Random();
-            int index=random.Next(words.Count);
-            return words[index].ToUpper();
         }
 
         public static string oneLetterTry(string lines,string text,string letter, ref bool hasChanged)
