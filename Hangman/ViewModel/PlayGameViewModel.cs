@@ -17,7 +17,6 @@ namespace Hangman.ViewModel
         }
 
         public static User currentUser { get; set; }
-        public static string Header { get; set; }
         public string labelContent { get; set; }
         public string userText { get; set; }
         public string currentStage { get; set; }
@@ -35,8 +34,8 @@ namespace Hangman.ViewModel
 
         public void social(object parater)
         {
-
-            switch (Header)
+            string header = parater.ToString();
+            switch (header)
             {
                 case "LinkdIn":
                     System.Diagnostics.Process.Start("https://www.linkedin.com/in/bolba-mateescu-andrei/");
@@ -61,8 +60,8 @@ namespace Hangman.ViewModel
 
         public void categories(object parater)
         {
-            MessageBox.Show(Header);
-            switch (Header)
+            string header=parater.ToString();
+            switch (header)
             {
                 case "All Categories":
                     word = Tool.getWord(allCategories);
@@ -82,7 +81,7 @@ namespace Hangman.ViewModel
                 default:
                     break;
             }
-            labelContent = "Melania";
+            labelContent = Tool.getTextFirstTime(word);
             OnPropertyChanged("labelContent");
         }
 

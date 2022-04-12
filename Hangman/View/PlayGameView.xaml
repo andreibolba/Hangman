@@ -40,23 +40,23 @@
                       Width="85"
                       FontSize="15"
                       >
-                <MenuItem Header="All categories" Command="{Binding Path=Categories}"  />
-                <MenuItem Header="Cars" Command="{Binding Path=Categories}"/>
-                <MenuItem Header="Movie" Command="{Binding Path=Categories}" />
-                <MenuItem Header="City" Command="{Binding Path=Categories}" />
-                <MenuItem Header="Country" Command="{Binding Path=Categories}" />
+                <MenuItem Header="All categories" Command="{Binding Path=Categories}" CommandParameter="All Categories"/>
+                <MenuItem Header="Cars" Command="{Binding Path=Categories}" CommandParameter="Cars"/>
+                <MenuItem Header="Movie" Command="{Binding Path=Categories}" CommandParameter="Movie"/>
+                <MenuItem Header="City" Command="{Binding Path=Categories}"  CommandParameter="City"/>
+                <MenuItem Header="Country" Command="{Binding Path=Categories}" CommandParameter="Country"/>
             </MenuItem>
 
             <MenuItem Header="Help" 
                       Height="30" 
                       Width="65"
                       FontSize="15">
-                <MenuItem Header="Author" Command="{Binding Path=Social}" />
+                <MenuItem Header="Author" Command="{Binding Path=Social}" CommandParameter="Author"/>
                 <Separator/>
-                <MenuItem Header="Facebook" Command="{Binding Path=Social}" />
-                <MenuItem Header="Instagram" Command="{Binding Path=Social}" />
-                <MenuItem Header="LinkdIn" Command="{Binding Path=Social}" />
-                <MenuItem Header="GitHub" Command="{Binding Path=Social}" />
+                <MenuItem Header="Facebook" Command="{Binding Path=Social}" CommandParameter="Facebook"/>
+                <MenuItem Header="Instagram" Command="{Binding Path=Social}" CommandParameter="Instagra"/>
+                <MenuItem Header="LinkdIn" Command="{Binding Path=Social}" CommandParameter="LinkdIn"/>
+                <MenuItem Header="GitHub" Command="{Binding Path=Social}" CommandParameter="GitHub"/>
             </MenuItem>
         </Menu>
 

@@ -50,7 +50,7 @@
                 FontFamily="Impact"
                 FontSize="25"
                 ItemsSource="{Binding usernames}"
-                
+                ScrollViewer.VerticalScrollBarVisibility="Hidden"
                 >
             </ListView>
 
