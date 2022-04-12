@@ -40,8 +40,15 @@ namespace Hangman.ViewModel
                 MessageBox.Show("No name entered!");
             else
             {
-                HangmanLogInViewModel.usernames.Add(inputName);
-                Tool.addUser(new User(Tool.getId(), inputName, imagePath));
+                if (Tool.isUsernameValid(inputName))
+                {
+                    HangmanLogInViewModel.usernames.Add(inputName);
+                    Tool.addUser(new User(Tool.getId(), inputName, imagePath));
+                }
+                else
+                {
+                    MessageBox.Show("Username already exists!");
+                }
             }
         }
 

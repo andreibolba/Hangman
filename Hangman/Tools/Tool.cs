@@ -170,5 +170,14 @@ namespace Hangman.Tools
             return usernames;
 
         }
+
+        public static bool isUsernameValid(string username)
+        {
+            foreach(User user in users)
+                if(user.UserName==username)
+                    return false;
+            return true;
+        }
+        
     }
 }
