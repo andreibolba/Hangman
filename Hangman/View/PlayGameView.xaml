@@ -27,13 +27,13 @@
                       Height="30" 
                       Width="65"
                       FontSize="15">
-                <MenuItem Header="New game"/>
+                <MenuItem Header="New game" Command="{Binding Path=NewGame}"/>
                 <MenuItem Header="Open game"/>
                 <MenuItem Header="Save game"/>
                 <Separator/>
                 <MenuItem Header="Statistic"/>
                 <Separator/>
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="exit"/>
             </MenuItem>
             <MenuItem Header="Categories" 
                       Height="30" 
@@ -192,6 +192,15 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+                <Label x:Name="Message"
+                       Content="You have to start a new game!"
+                       FontSize="25"
+                       FontFamily="Impact"
+                       Grid.Row="2" 
+                       Margin="103,88,0,98"
+                       HorizontalAlignment="Left"
+                       Visibility="{Binding finishTextVisibility}"
+                       />
             </Grid>
 
         </Grid>

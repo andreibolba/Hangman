@@ -26,5 +26,10 @@ namespace Hangman.View
             PlayGameViewModel.currentUser = user;
             InitializeComponent();
         }
+
+        private void exit(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

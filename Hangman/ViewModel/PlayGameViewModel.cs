@@ -13,12 +13,7 @@ namespace Hangman.ViewModel
         public PlayGameViewModel()
         {
             userText = "Hello " + currentUser.UserName + "!";
-            currentStage = "./image/stage/part_one.png";
-            word = null;
-            tries = 0;
-            firstLetterRow = new ObservableCollection<Button> { new Button("Q"), new Button("W"), new Button("E"), new Button("R"), new Button("T"), new Button("Y"), new Button("U"), new Button("I"), new Button("O"), new Button("P") };
-            secondLetterRow = new ObservableCollection<Button> { new Button("A"), new Button("S"), new Button("D"), new Button("F"), new Button("G"), new Button("H"), new Button("J"), new Button("K"), new Button("L") };
-            thirdLetterRow = new ObservableCollection<Button> { new Button("Z"), new Button("X"), new Button("C"), new Button("V"), new Button("B"), new Button("N"), new Button("M"), new Button("I") };
+            startGame();
         }
 
         public ObservableCollection<Button> firstLetterRow { get; set; }
@@ -29,6 +24,7 @@ namespace Hangman.ViewModel
         public string labelContent { get; set; }
         public string userText { get; set; }
         public string currentStage { get; set; }
+        public string finishTextVisibility { get; set; }
 
         private string word;
         private int tries;
@@ -36,6 +32,19 @@ namespace Hangman.ViewModel
         private ICommand m_social;
         private ICommand m_catrories;
         private ICommand m_buttonpress;
+        private ICommand m_newgame;
+
+        private void startGame()
+        {
+            currentStage = "./image/stage/part_one.png";
+            finishTextVisibility = "Hidden";
+            word = null;
+            labelContent = null;
+            tries = 0;
+            firstLetterRow = new ObservableCollection<Button> { new Button("Q"), new Button("W"), new Button("E"), new Button("R"), new Button("T"), new Button("Y"), new Button("U"), new Button("I"), new Button("O"), new Button("P") };
+            secondLetterRow = new ObservableCollection<Button> { new Button("A"), new Button("S"), new Button("D"), new Button("F"), new Button("G"), new Button("H"), new Button("J"), new Button("K"), new Button("L") };
+            thirdLetterRow = new ObservableCollection<Button> { new Button("Z"), new Button("X"), new Button("C"), new Button("V"), new Button("B"), new Button("N"), new Button("M"), new Button("I") };
+        }
 
         public void social(object parater)
         {
@@ -112,6 +121,8 @@ namespace Hangman.ViewModel
                     {
                         MessageBox.Show("You won one game");
                         finishGame();
+                        finishTextVisibility = "Visible";
+                        OnPropertyChanged("finishTextVisibility");
                     }
                 }
                 else
@@ -121,8 +132,10 @@ namespace Hangman.ViewModel
                     OnPropertyChanged("currentStage");
                     if (tries == Tool.images().Count - 1)
                     {
-                        MessageBox.Show("Lost game!");
+                        MessageBox.Show("Lost game!\nThe word was: "+word);
                         finishGame();
+                        finishTextVisibility = "Visible";
+                        OnPropertyChanged("finishTextVisibility");
                     }
                 }
                 
@@ -131,6 +144,17 @@ namespace Hangman.ViewModel
             {
                 MessageBox.Show("Choose a category");
             }
+        }
+
+        public void newGame(object parameter)
+        {
+            startGame();
+            OnPropertyChanged("finishTextVisibility");
+            OnPropertyChanged("firstLetterRow");
+            OnPropertyChanged("secondLetterRow");
+            OnPropertyChanged("thirdLetterRow");
+            OnPropertyChanged("currentStage");
+            OnPropertyChanged("labelContent");
         }
 
         public ICommand Social
@@ -160,6 +184,16 @@ namespace Hangman.ViewModel
                 if (m_buttonpress == null)
                     m_buttonpress = new RelayCommand(buttonPress);
                 return m_buttonpress;
+            }
+        }
+
+        public ICommand NewGame
+        {
+            get
+            {
+                if(m_newgame==null)
+                    m_newgame = new RelayCommand(newGame);
+                return m_newgame;
             }
         }
     }
