@@ -19,6 +19,7 @@ namespace Hangman.ViewModel
         public ObservableCollection<Button> firstLetterRow { get; set; }
         public ObservableCollection<Button> secondLetterRow { get; set; }
         public ObservableCollection<Button> thirdLetterRow { get; set; }
+        public ObservableCollection<string> progressPicture { get; set; }
 
         public static User currentUser { get; set; }
         public string labelContent { get; set; }
@@ -29,6 +30,7 @@ namespace Hangman.ViewModel
 
         private string word;
         private int tries;
+        private bool canStart;
 
         private ICommand m_social;
         private ICommand m_catrories;
@@ -43,9 +45,16 @@ namespace Hangman.ViewModel
             word = null;
             labelContent = null;
             tries = 0;
+            progressPicture = new ObservableCollection<string>();
+            int goodProgress = currentUser.MinigamesWon;
+            for (int j = 0; j < goodProgress; j++)
+                progressPicture.Add("./image/check.png");
+            for (int j = goodProgress; j < 5; j++)
+                progressPicture.Add("./image/lock.png");
             firstLetterRow = new ObservableCollection<Button> { new Button("Q"), new Button("W"), new Button("E"), new Button("R"), new Button("T"), new Button("Y"), new Button("U"), new Button("I"), new Button("O"), new Button("P") };
             secondLetterRow = new ObservableCollection<Button> { new Button("A"), new Button("S"), new Button("D"), new Button("F"), new Button("G"), new Button("H"), new Button("J"), new Button("K"), new Button("L") };
-            thirdLetterRow = new ObservableCollection<Button> { new Button("Z"), new Button("X"), new Button("C"), new Button("V"), new Button("B"), new Button("N"), new Button("M"), new Button("I") };
+            thirdLetterRow = new ObservableCollection<Button> { new Button("Z"), new Button("X"), new Button("C"), new Button("V"), new Button("B"), new Button("N"), new Button("M") };
+            canStart = true;
         }
 
         public void social(object parater)
@@ -76,24 +85,31 @@ namespace Hangman.ViewModel
 
         public void categories(object parater)
         {
-            initialTextVisibility = "Hidden";
-            string header = parater.ToString();
-            word = Tool.getStartWord(header);
-            labelContent = Tool.getTextFirstTime(word);
-            OnPropertyChanged("labelContent");
-            OnPropertyChanged("initialTextVisibility");
+            if (canStart == true)
+            {
+                initialTextVisibility = "Hidden";
+                string header = parater.ToString();
+                word = Tool.getStartWord(header);
+                labelContent = Tool.getTextFirstTime(word);
+                OnPropertyChanged("labelContent");
+                OnPropertyChanged("initialTextVisibility");
+            }
+            else
+            {
+                MessageBox.Show("Start a game first");
+            }
         }
 
         public void changeVisibility(string letter)
         {
             int index = 0;
-            for(index = 0;index < firstLetterRow.Count;index++)
+            for (index = 0; index < firstLetterRow.Count; index++)
                 if (firstLetterRow[index].label == letter)
                     firstLetterRow[index] = new Button(letter, "Hidden");
-            for(index = 0;index < secondLetterRow.Count;index++)
+            for (index = 0; index < secondLetterRow.Count; index++)
                 if (secondLetterRow[index].label == letter)
                     secondLetterRow[index] = new Button(letter, "Hidden");
-            for(index = 0;index < thirdLetterRow.Count;index++)
+            for (index = 0; index < thirdLetterRow.Count; index++)
                 if (thirdLetterRow[index].label == letter)
                     thirdLetterRow[index] = new Button(letter, "Hidden");
         }
@@ -102,11 +118,11 @@ namespace Hangman.ViewModel
         {
             int index = 0;
             for (index = 0; index < firstLetterRow.Count; index++)
-                    firstLetterRow[index] = new Button(firstLetterRow[index].label, "Hidden");
+                firstLetterRow[index] = new Button(firstLetterRow[index].label, "Hidden");
             for (index = 0; index < secondLetterRow.Count; index++)
-                    secondLetterRow[index] = new Button(secondLetterRow[index].label, "Hidden");
+                secondLetterRow[index] = new Button(secondLetterRow[index].label, "Hidden");
             for (index = 0; index < thirdLetterRow.Count; index++)
-                    thirdLetterRow[index] = new Button(thirdLetterRow[index].label, "Hidden");
+                thirdLetterRow[index] = new Button(thirdLetterRow[index].label, "Hidden");
         }
 
         public void buttonPress(object parameter)
@@ -121,12 +137,37 @@ namespace Hangman.ViewModel
                 {
                     labelContent = text;
                     OnPropertyChanged("labelContent");
-                    if(text==word)
+                    if (text == word)
                     {
                         MessageBox.Show("You won one game");
                         finishGame();
                         finishTextVisibility = "Visible";
                         OnPropertyChanged("finishTextVisibility");
+                        currentUser.MinigamesWon++;
+                        currentUser.Minigames++;
+                        int goodProgress = currentUser.MinigamesWon;
+                        progressPicture = new ObservableCollection<string>();
+                        for (int j = 0; j < goodProgress; j++)
+                            progressPicture.Add("./image/check.png");
+                        for (int j = goodProgress; j < 5; j++)
+                            progressPicture.Add("./image/lock.png");
+                        OnPropertyChanged("progressPicture");
+                        if (currentUser.MinigamesWon == 5)
+                        {
+                            MessageBox.Show("You won a big game. Congratulation!");
+                            currentUser.MinigamesWon = 0;
+                            currentUser.GameWon++;
+                            goodProgress = currentUser.MinigamesWon;
+                            progressPicture = new ObservableCollection<string>();
+                            for (int j = 0; j < goodProgress; j++)
+                                progressPicture.Add("./image/check.png");
+                            for (int j = goodProgress; j < 5; j++)
+                                progressPicture.Add("./image/lock.png");
+                            OnPropertyChanged("progressPicture");
+
+                        }
+                        Tool.update(currentUser);
+                        canStart = false;
                     }
                 }
                 else
@@ -136,13 +177,24 @@ namespace Hangman.ViewModel
                     OnPropertyChanged("currentStage");
                     if (tries == Tool.images().Count - 1)
                     {
-                        MessageBox.Show("Lost game!\nThe word was: "+word);
+                        MessageBox.Show("Lost game!\nThe word was: " + word);
                         finishGame();
                         finishTextVisibility = "Visible";
                         OnPropertyChanged("finishTextVisibility");
+                        currentUser.MinigamesWon = 0;
+                        currentUser.Minigames++;
+                        Tool.update(currentUser);
+                        int goodProgress = currentUser.MinigamesWon;
+                        progressPicture = new ObservableCollection<string>();
+                        for (int j = 0; j < goodProgress; j++)
+                            progressPicture.Add("./image/check.png");
+                        for (int j = goodProgress; j < 5; j++)
+                            progressPicture.Add("./image/lock.png");
+                        OnPropertyChanged("progressPicture");
+                        canStart = false;
                     }
                 }
-                
+
             }
             else
             {
@@ -160,6 +212,7 @@ namespace Hangman.ViewModel
             OnPropertyChanged("currentStage");
             OnPropertyChanged("labelContent");
             OnPropertyChanged("initialTextVisibility");
+            OnPropertyChanged("progressPicture");
         }
 
         public ICommand Social
@@ -196,7 +249,7 @@ namespace Hangman.ViewModel
         {
             get
             {
-                if(m_newgame==null)
+                if (m_newgame == null)
                     m_newgame = new RelayCommand(newGame);
                 return m_newgame;
             }

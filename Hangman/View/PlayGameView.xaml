@@ -94,31 +94,30 @@
                    FontFamily="Impact" Margin="10,20,433,0" Height="35" VerticalAlignment="Top"
                        />
 
-                <Image Grid.Row="1" Margin="337,32,100,41">
-                    <Image.Source>
-                        <BitmapImage UriSource="./image/lock.png"></BitmapImage>
-                    </Image.Source>
-                </Image>
-                <Image Grid.Row="1" Margin="63,32,374,41">
-                    <Image.Source>
-                        <BitmapImage UriSource="./image/lock.png"/>
-                    </Image.Source>
-                </Image>
-                <Image Grid.Row="1" Margin="133,32,304,41">
-                    <Image.Source>
-                        <BitmapImage UriSource="./image/lock.png"/>
-                    </Image.Source>
-                </Image>
-                <Image Grid.Row="1" Margin="201,32,236,41">
-                    <Image.Source>
-                        <BitmapImage UriSource="./image/lock.png"/>
-                    </Image.Source>
-                </Image>
-                <Image Grid.Row="1" Margin="269,32,168,41">
-                    <Image.Source>
-                        <BitmapImage UriSource="./image/lock.png"/>
-                    </Image.Source>
-                </Image>
+                <ItemsControl x:Name="progressPictures" 
+                          Grid.Row="1"
+                          ItemsSource="{Binding progressPicture}"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Height="50"
+                                   Width="50"
+                                   >
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding}"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
 
                 <ItemsControl x:Name="keyboard1" 
                           Grid.Row="2"

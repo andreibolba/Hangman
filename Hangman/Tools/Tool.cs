@@ -41,6 +41,18 @@ namespace Hangman.Tools
             return photos;
         }
 
+        public static ObservableCollection<string> progressPic()
+        {
+            ObservableCollection<string> photos = new ObservableCollection<string>();
+            photos.Add("./image/lock.png");
+            photos.Add("./image/lock.png");
+            photos.Add("./image/lock.png");
+            photos.Add("./image/lock.png");
+            photos.Add("./image/lock.png");
+
+            return photos;
+        }
+
         public static List<string> profileImages()
         {
             List<string> photos = new List<string>();
@@ -98,6 +110,18 @@ namespace Hangman.Tools
         public static void addUser(User user)
         {
             users.Add(user);
+            string json = JsonConvert.SerializeObject(users.ToArray());
+            System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\users.json", json);
+        }
+
+        public static void update(User user)
+        {
+            for(int index=0;index<users.Count();index++)
+                if(users[index].ID==user.ID)
+                {
+                    users[index] = user;
+                    break;
+                }
             string json = JsonConvert.SerializeObject(users.ToArray());
             System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\users.json", json);
         }
