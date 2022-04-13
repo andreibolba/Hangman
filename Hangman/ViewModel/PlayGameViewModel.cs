@@ -25,6 +25,7 @@ namespace Hangman.ViewModel
         public string userText { get; set; }
         public string currentStage { get; set; }
         public string finishTextVisibility { get; set; }
+        public string initialTextVisibility { get; set; }
 
         private string word;
         private int tries;
@@ -38,6 +39,7 @@ namespace Hangman.ViewModel
         {
             currentStage = "./image/stage/part_one.png";
             finishTextVisibility = "Hidden";
+            initialTextVisibility = "Visible";
             word = null;
             labelContent = null;
             tries = 0;
@@ -74,10 +76,12 @@ namespace Hangman.ViewModel
 
         public void categories(object parater)
         {
+            initialTextVisibility = "Hidden";
             string header = parater.ToString();
             word = Tool.getStartWord(header);
             labelContent = Tool.getTextFirstTime(word);
             OnPropertyChanged("labelContent");
+            OnPropertyChanged("initialTextVisibility");
         }
 
         public void changeVisibility(string letter)
@@ -155,6 +159,7 @@ namespace Hangman.ViewModel
             OnPropertyChanged("thirdLetterRow");
             OnPropertyChanged("currentStage");
             OnPropertyChanged("labelContent");
+            OnPropertyChanged("initialTextVisibility");
         }
 
         public ICommand Social

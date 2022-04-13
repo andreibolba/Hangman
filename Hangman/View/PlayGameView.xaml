@@ -210,6 +210,14 @@
                FontSize="50" Margin="20,10,10,10"
                
         />
+        <Label x:Name="initalMessage"
+               Content="Please choose a category!"
+               Grid.Row="2"
+               FontFamily="Impact"
+               FontSize="30"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Visibility="{Binding initialTextVisibility}"/>
 
     </Grid>
 </Window>
