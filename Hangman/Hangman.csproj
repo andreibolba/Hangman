@@ -62,6 +62,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\Button.cs" />
     <Compile Include="Tools\Tool.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
