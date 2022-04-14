@@ -70,6 +70,7 @@
     <Compile Include="ViewModel\HangmanSignUpViewModel.cs" />
     <Compile Include="ViewModel\PlayGameViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\StatisticsViewModel.cs" />
     <Compile Include="View\Author.xaml.cs">
       <DependentUpon>Author.xaml</DependentUpon>
     </Compile>
@@ -81,6 +82,9 @@
     </Compile>
     <Compile Include="View\PlayGameView.xaml.cs">
       <DependentUpon>PlayGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Statistics.xaml.cs">
+      <DependentUpon>Statistics.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PlayGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Statistics.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

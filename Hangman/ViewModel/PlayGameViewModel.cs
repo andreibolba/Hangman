@@ -36,6 +36,7 @@ namespace Hangman.ViewModel
         private ICommand m_catrories;
         private ICommand m_buttonpress;
         private ICommand m_newgame;
+        private ICommand m_stats;
 
         private void startGame()
         {
@@ -81,6 +82,12 @@ namespace Hangman.ViewModel
                 default:
                     break;
             }
+        }
+
+        public void stats(object parameter)
+        {
+            Statistics statistics = new Statistics();
+            statistics.Show();
         }
 
         public void categories(object parater)
@@ -252,6 +259,16 @@ namespace Hangman.ViewModel
                 if (m_newgame == null)
                     m_newgame = new RelayCommand(newGame);
                 return m_newgame;
+            }
+        }
+
+        public ICommand Stats
+        {
+            get
+            {
+                if(m_stats == null)
+                    m_stats=new RelayCommand(stats);
+                return m_stats;
             }
         }
     }

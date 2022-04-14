@@ -31,7 +31,7 @@
                 <MenuItem Header="Open game"/>
                 <MenuItem Header="Save game"/>
                 <Separator/>
-                <MenuItem Header="Statistic"/>
+                <MenuItem Header="Statistic" Command="{Binding Path=Stats}"/>
                 <Separator/>
                 <MenuItem Header="Exit" Click="exit"/>
             </MenuItem>
