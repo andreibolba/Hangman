@@ -37,6 +37,7 @@ namespace Hangman.ViewModel
         private ICommand m_buttonpress;
         private ICommand m_newgame;
         private ICommand m_stats;
+        private ICommand m_save;
 
         private void startGame()
         {
@@ -222,6 +223,13 @@ namespace Hangman.ViewModel
             OnPropertyChanged("progressPicture");
         }
 
+        public void saveGame(object parameter)
+        {
+            Game game = new Game(0,"Test",labelContent,firstLetterRow,secondLetterRow,thirdLetterRow,tries);
+            Tool.addGame(game);
+            MessageBox.Show("Merge...cred");
+        }
+
         public ICommand Social
         {
             get
@@ -269,6 +277,16 @@ namespace Hangman.ViewModel
                 if(m_stats == null)
                     m_stats=new RelayCommand(stats);
                 return m_stats;
+            }
+        }
+
+        public ICommand Save
+        {
+            get
+            {
+                if (m_save == null)
+                    m_save = new RelayCommand(saveGame);
+                return m_save;
             }
         }
     }

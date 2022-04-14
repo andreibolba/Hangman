@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Hangman.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +14,7 @@ namespace Hangman.Tools
     public class Tool
     {
         public static List<User> users;
+        public static List<Game> games = new List<Game>();
 
         public static string getStartWord(string fileName)
         {
@@ -198,6 +200,21 @@ namespace Hangman.Tools
                     return false;
             return true;
         }
+
+        public static List<Game> readGames()
+        {
+            StreamReader r = new StreamReader(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\games.json");
+            string jsonString = r.ReadToEnd();
+            games = new List<Game>();
+            games = JsonConvert.DeserializeObject<List<Game>>(jsonString);
+            return games;
+        }
         
+        public static void addGame(Game game)
+        {
+            games.Add(game);
+            string json = JsonConvert.SerializeObject(games.ToArray());
+            System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\games.json", json);
+        }
     }
 }

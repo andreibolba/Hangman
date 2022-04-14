@@ -63,6 +63,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Button.cs" />
+    <Compile Include="Model\Game.cs" />
     <Compile Include="Tools\Tool.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
@@ -106,6 +107,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Files\games.json" />
     <None Include="Files\users.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

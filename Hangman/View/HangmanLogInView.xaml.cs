@@ -28,10 +28,6 @@ namespace Hangman.View
             InitializeComponent();
         }
 
-        private void listViewDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-        }
-
         private void exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

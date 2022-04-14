@@ -29,7 +29,7 @@
                       FontSize="15">
                 <MenuItem Header="New game" Command="{Binding Path=NewGame}"/>
                 <MenuItem Header="Open game"/>
-                <MenuItem Header="Save game"/>
+                <MenuItem Header="Save game" Command="{Binding Path=Save}"/>
                 <Separator/>
                 <MenuItem Header="Statistic" Command="{Binding Path=Stats}"/>
                 <Separator/>
