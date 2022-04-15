@@ -31,6 +31,7 @@ namespace Hangman.ViewModel
         private string word;
         private int tries;
         private bool canStart;
+        private bool isFinished;
 
         private ICommand m_social;
         private ICommand m_catrories;
@@ -57,6 +58,7 @@ namespace Hangman.ViewModel
             secondLetterRow = new ObservableCollection<Button> { new Button("A"), new Button("S"), new Button("D"), new Button("F"), new Button("G"), new Button("H"), new Button("J"), new Button("K"), new Button("L") };
             thirdLetterRow = new ObservableCollection<Button> { new Button("Z"), new Button("X"), new Button("C"), new Button("V"), new Button("B"), new Button("N"), new Button("M") };
             canStart = true;
+            isFinished = false;
         }
 
         public void social(object parater)
@@ -131,6 +133,7 @@ namespace Hangman.ViewModel
                 secondLetterRow[index] = new Button(secondLetterRow[index].label, "Hidden");
             for (index = 0; index < thirdLetterRow.Count; index++)
                 thirdLetterRow[index] = new Button(thirdLetterRow[index].label, "Hidden");
+            isFinished = true;
         }
 
         public void buttonPress(object parameter)
@@ -212,6 +215,17 @@ namespace Hangman.ViewModel
 
         public void newGame(object parameter)
         {
+            if (isFinished == false)
+                if (MessageBox.Show("Are you sure", "Title_here", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    currentUser.MinigamesWon = 0;
+                    Tool.update(currentUser);
+
+                }
+                else
+                {
+                    return;
+                }
             startGame();
             OnPropertyChanged("finishTextVisibility");
             OnPropertyChanged("firstLetterRow");
@@ -225,7 +239,7 @@ namespace Hangman.ViewModel
 
         public void saveGame(object parameter)
         {
-            Game game = new Game(currentUser.ID,"Test",labelContent,firstLetterRow,secondLetterRow,thirdLetterRow,tries);
+            Game game = new Game(currentUser.ID, "Test", labelContent, firstLetterRow, secondLetterRow, thirdLetterRow, tries);
             Tool.addGame(game);
         }
 
@@ -273,8 +287,8 @@ namespace Hangman.ViewModel
         {
             get
             {
-                if(m_stats == null)
-                    m_stats=new RelayCommand(stats);
+                if (m_stats == null)
+                    m_stats = new RelayCommand(stats);
                 return m_stats;
             }
         }

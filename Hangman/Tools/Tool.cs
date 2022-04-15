@@ -160,6 +160,15 @@ namespace Hangman.Tools
             return ++id;
         }
 
+        public static int getIdGame()
+        {
+            if (games.Count == 0)
+                return 0;
+            int index = games.Count - 1;
+            int id = games[index].Id;
+            return ++id;
+        }
+
         public static User getUser(int id)
         {
             foreach (User user in users)
