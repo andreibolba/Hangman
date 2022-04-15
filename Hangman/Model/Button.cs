@@ -11,6 +11,12 @@ namespace Hangman.Model
         public string label { get; set; }
         public string visible { get; set; }
 
+        public Button()
+        {
+            label = "";
+            visible = "";
+        }
+
         public Button(string label)
         {
             this.label = label;

@@ -18,8 +18,8 @@ namespace Hangman.Tools
         public User()
         {
             ID = -1;
-            UserName = null;
-            PicPath = null;
+            UserName = "";
+            PicPath = "";
             GameWon = -1;
             Minigames = -1;
             MinigamesWon = -1;

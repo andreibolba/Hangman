@@ -225,9 +225,8 @@ namespace Hangman.ViewModel
 
         public void saveGame(object parameter)
         {
-            Game game = new Game(0,"Test",labelContent,firstLetterRow,secondLetterRow,thirdLetterRow,tries);
+            Game game = new Game(currentUser.ID,"Test",labelContent,firstLetterRow,secondLetterRow,thirdLetterRow,tries);
             Tool.addGame(game);
-            MessageBox.Show("Merge...cred");
         }
 
         public ICommand Social
