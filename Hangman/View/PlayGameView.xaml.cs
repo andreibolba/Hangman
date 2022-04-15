@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Hangman.ViewModel;
-using Hangman.Tools;
+using Hangman.Model;
 
 namespace Hangman.View
 {

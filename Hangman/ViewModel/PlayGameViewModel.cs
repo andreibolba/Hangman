@@ -1,5 +1,5 @@
 ﻿using Hangman.Model;
-using Hangman.Tools;
+using Hangman.Model;
 using Hangman.View;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -89,7 +89,7 @@ namespace Hangman.ViewModel
 
         public void stats(object parameter)
         {
-            Statistics statistics = new Statistics();
+            Statistics statistics = new Statistics(currentUser);
             statistics.Show();
         }
 
@@ -155,7 +155,8 @@ namespace Hangman.ViewModel
                         finishTextVisibility = "Visible";
                         OnPropertyChanged("finishTextVisibility");
                         currentUser.MinigamesWon++;
-                        currentUser.Minigames++;
+                        currentUser.MinigamesInRow++;
+                        currentUser.TotalGamesPlayed++;
                         int goodProgress = currentUser.MinigamesWon;
                         progressPicture = new ObservableCollection<string>();
                         for (int j = 0; j < goodProgress; j++)
@@ -193,7 +194,7 @@ namespace Hangman.ViewModel
                         finishTextVisibility = "Visible";
                         OnPropertyChanged("finishTextVisibility");
                         currentUser.MinigamesWon = 0;
-                        currentUser.Minigames++;
+                        currentUser.TotalGamesPlayed++;
                         Tool.update(currentUser);
                         int goodProgress = currentUser.MinigamesWon;
                         progressPicture = new ObservableCollection<string>();

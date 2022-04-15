@@ -14,89 +14,79 @@
     </Window.DataContext>
     <Grid VerticalAlignment="Center"
           HorizontalAlignment="Center">
-        <Label Content="Username's staticts"
+        <Label Content="{Binding mainLabel}"
                FontFamily="Impact"
                FontSize="45"
                HorizontalContentAlignment="Center"/>
-        <Label Content="Game played: "
-               Grid.Row="0"
-               FontFamily="Impact"
-               FontSize="30" Margin="304,96,414,448"
+        <Label Content="Game won: "
+            Grid.Row="0"
+            FontFamily="Impact"
+            FontSize="30" Margin="272,136,446,408"
+               />
+        <Label Content="Minigame played: "
+            Grid.Row="0"
+            FontFamily="Impact"
+            FontSize="30" Margin="272,194,397,350"
+               />
+        <Label Content="Minigame won: "
+            Grid.Row="0"
+            FontFamily="Impact"
+            FontSize="30" Margin="272,248,446,296"
+               />
+        <Label Content="Minigame lost: "
+            Grid.Row="0"
+            FontFamily="Impact"
+            FontSize="30" Margin="272,304,446,240"
                />
         <Label Content="Game played: "
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="304,148,414,396"
+            FontSize="30" Margin="272,356,446,188"
                />
         <Label Content="Game played: "
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="304,200,414,344"
+            FontSize="30" Margin="272,412,446,132"
                />
         <Label Content="Game played: "
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="304,244,414,300"
+            FontSize="30" Margin="272,464,446,80"
                />
-        <Label Content="Game played: "
+        <Label Content="{Binding gameWon}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="304,288,414,256"
+            FontSize="30" Margin="488,136,314,408" HorizontalContentAlignment="Center"
                />
-        <Label Content="Game played: "
+        <Label Content="{Binding minigamePlayed}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="304,340,414,204"
+            FontSize="30" Margin="488,194,314,350" HorizontalContentAlignment="Center"
                />
-        <Label Content="Game played: "
+        <Label Content="{Binding minigameWon}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="304,392,414,152"
+            FontSize="30" Margin="488,248,314,296" HorizontalContentAlignment="Center"
                />
-        <Label Content="Game played: "
+        <Label Content="{Binding minigameLost}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="304,436,414,108"
-               />
-        <Label Content="0 "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="488,96,314,448" HorizontalContentAlignment="Center"
+            FontSize="30" Margin="488,304,314,240" HorizontalContentAlignment="Center"
                />
         <Label Content="0 "
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="488,148,314,396" HorizontalContentAlignment="Center"
+            FontSize="30" Margin="488,356,314,188" HorizontalContentAlignment="Center"
                />
         <Label Content="0 "
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="488,200,314,344" HorizontalContentAlignment="Center"
+            FontSize="30" Margin="488,412,314,132" HorizontalContentAlignment="Center"
                />
         <Label Content="0 "
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="488,244,314,300" HorizontalContentAlignment="Center"
-               />
-        <Label Content="0 "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="488,288,314,256" HorizontalContentAlignment="Center"
-               />
-        <Label Content="0 "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="488,340,314,204" HorizontalContentAlignment="Center"
-               />
-        <Label Content="0 "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="488,392,314,152" HorizontalContentAlignment="Center"
-               />
-        <Label Content="0 "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="488,436,314,108" HorizontalContentAlignment="Center"
+            FontSize="30" Margin="488,464,314,80" HorizontalContentAlignment="Center"
                />
     </Grid>
 </Window>

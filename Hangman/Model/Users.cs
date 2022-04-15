@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hangman.Tools
+namespace Hangman.Model
 {
     public class User
     {
@@ -12,8 +12,10 @@ namespace Hangman.Tools
         public string UserName { get; set; }
         public string PicPath { get; set; }
         public int GameWon { get; set; }
-        public int Minigames { get; set; }
+        public int MinigamesInRow { get; set; }
         public int MinigamesWon { get; set; }
+        public int TotalGamesPlayed { get; set; }
+        
 
         public User()
         {
@@ -21,8 +23,9 @@ namespace Hangman.Tools
             UserName = "";
             PicPath = "";
             GameWon = -1;
-            Minigames = -1;
+            MinigamesInRow = -1;
             MinigamesWon = -1;
+            TotalGamesPlayed = -1;
         }
 
         public User(int id,string userName,string picPath)
@@ -31,8 +34,9 @@ namespace Hangman.Tools
             UserName = userName;
             PicPath = picPath;
             GameWon = 0;
-            Minigames = 0;
+            MinigamesInRow = 0;
             MinigamesWon = 0;
+            TotalGamesPlayed = 0;
         }
 
         public override string ToString()

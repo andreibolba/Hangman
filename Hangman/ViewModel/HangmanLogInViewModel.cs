@@ -1,4 +1,4 @@
-﻿using Hangman.Tools;
+﻿using Hangman.Model;
 using Hangman.View;
 using System;
 using System.Collections.Generic;

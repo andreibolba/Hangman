@@ -1,4 +1,4 @@
-﻿using Hangman.Tools;
+﻿using Hangman.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hangman.Model;
+using Hangman.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +21,9 @@ namespace Hangman.View
     /// </summary>
     public partial class Statistics : Window
     {
-        public Statistics()
+        public Statistics(User user)
         {
+            StatisticsViewModel.currentUser = user;
             InitializeComponent();
         }
     }
