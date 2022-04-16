@@ -4,7 +4,7 @@ Hangman game.<br>
 <br>
 #Main feature<br>
 
-<b>You can:</b><br>.
+<b>You can:</b><br>
 - make new profile<br>
 - play game<br>
 - choose categories for words<br>
