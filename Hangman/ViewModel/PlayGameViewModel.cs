@@ -1,6 +1,7 @@
 ﻿using Hangman.Model;
 using Hangman.Model;
 using Hangman.View;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -29,6 +30,7 @@ namespace Hangman.ViewModel
         public string initialTextVisibility { get; set; }
 
         private string word;
+        private string header;
         private int tries;
         private bool canStart;
         private bool isFinished;
@@ -98,7 +100,7 @@ namespace Hangman.ViewModel
             if (canStart == true)
             {
                 initialTextVisibility = "Hidden";
-                string header = parater.ToString();
+                header = parater.ToString();
                 word = Tool.getStartWord(header);
                 labelContent = Tool.getTextFirstTime(word);
                 OnPropertyChanged("labelContent");
@@ -239,8 +241,8 @@ namespace Hangman.ViewModel
         }
 
         public void saveGame(object parameter)
-        {
-            Game game = new Game(currentUser.ID, "Test", labelContent, firstLetterRow, secondLetterRow, thirdLetterRow, tries);
+        {   
+            Game game = new Game(currentUser.ID, header, labelContent, firstLetterRow, secondLetterRow, thirdLetterRow, tries, DateTime.Now.ToString("ddd, dd MMM yyy HH':'mm':'ss 'GMT'"));
             Tool.addGame(game);
         }
 

@@ -17,6 +17,7 @@ namespace Hangman.Model
         public ObservableCollection<Button> ButtonsTwo { get; set; }
         public ObservableCollection<Button> ButtonsThree { get; set; }
         public int Tries { get; set; }
+        public string saveTime { get; set; }
         
         public Game()
         {
@@ -27,9 +28,10 @@ namespace Hangman.Model
             ButtonsTwo = new ObservableCollection<Button>();
             ButtonsThree = new ObservableCollection<Button>();
             Tries = -1;
+            saveTime = "";
         }
 
-        public Game(int id,string name,string word, ObservableCollection<Button> buttonsOne, ObservableCollection<Button> buttonsTwo, ObservableCollection<Button> buttonsThree, int tries)
+        public Game(int id,string name,string word, ObservableCollection<Button> buttonsOne, ObservableCollection<Button> buttonsTwo, ObservableCollection<Button> buttonsThree, int tries, string time)
         {
             UserId = id;
             Name = name;
@@ -38,6 +40,7 @@ namespace Hangman.Model
             ButtonsTwo = buttonsTwo;
             ButtonsThree = buttonsThree;
             Tries = tries;
+            saveTime = time;
         }
     }
 }
