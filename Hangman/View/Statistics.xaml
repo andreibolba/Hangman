@@ -21,72 +21,43 @@
         <Label Content="Game won: "
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="272,136,446,408"
+            FontSize="25" Margin="272,136,446,408"
                />
         <Label Content="Minigame played: "
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="272,194,397,350"
+            FontSize="25" Margin="272,188,397,356"
                />
         <Label Content="Minigame won: "
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="272,248,446,296"
+            FontSize="25" Margin="272,244,446,300"
                />
         <Label Content="Minigame lost: "
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="272,304,446,240"
-               />
-        <Label Content="Game played: "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="272,356,446,188"
-               />
-        <Label Content="Game played: "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="272,412,446,132"
-               />
-        <Label Content="Game played: "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="272,464,446,80"
+            FontSize="25" Margin="272,300,446,244"
                />
         <Label Content="{Binding gameWon}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="488,136,314,408" HorizontalContentAlignment="Center"
+            FontSize="25" Margin="488,136,314,408" HorizontalContentAlignment="Center"
                />
         <Label Content="{Binding minigamePlayed}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="488,194,314,350" HorizontalContentAlignment="Center"
+            FontSize="25" Margin="488,188,314,356" HorizontalContentAlignment="Center"
                />
         <Label Content="{Binding minigameWon}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="488,248,314,296" HorizontalContentAlignment="Center"
+            FontSize="25" Margin="488,244,314,300" HorizontalContentAlignment="Center"
                />
         <Label Content="{Binding minigameLost}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="30" Margin="488,304,314,240" HorizontalContentAlignment="Center"
+            FontSize="25" Margin="488,300,314,244" HorizontalContentAlignment="Center"
                />
-        <Label Content="0 "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="488,356,314,188" HorizontalContentAlignment="Center"
-               />
-        <Label Content="0 "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="488,412,314,132" HorizontalContentAlignment="Center"
-               />
-        <Label Content="0 "
-            Grid.Row="0"
-            FontFamily="Impact"
-            FontSize="30" Margin="488,464,314,80" HorizontalContentAlignment="Center"
-               />
+
     </Grid>
 </Window>

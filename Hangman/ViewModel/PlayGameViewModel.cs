@@ -49,7 +49,7 @@ namespace Hangman.ViewModel
             labelContent = null;
             tries = 0;
             progressPicture = new ObservableCollection<string>();
-            int goodProgress = currentUser.MinigamesWon;
+            int goodProgress = currentUser.MinigamesInRow;
             for (int j = 0; j < goodProgress; j++)
                 progressPicture.Add("./image/check.png");
             for (int j = goodProgress; j < 5; j++)
@@ -157,19 +157,19 @@ namespace Hangman.ViewModel
                         currentUser.MinigamesWon++;
                         currentUser.MinigamesInRow++;
                         currentUser.TotalGamesPlayed++;
-                        int goodProgress = currentUser.MinigamesWon;
+                        int goodProgress = currentUser.MinigamesInRow;
                         progressPicture = new ObservableCollection<string>();
                         for (int j = 0; j < goodProgress; j++)
                             progressPicture.Add("./image/check.png");
                         for (int j = goodProgress; j < 5; j++)
                             progressPicture.Add("./image/lock.png");
                         OnPropertyChanged("progressPicture");
-                        if (currentUser.MinigamesWon == 5)
+                        if (currentUser.MinigamesInRow == 5)
                         {
                             MessageBox.Show("You won a big game. Congratulation!");
-                            currentUser.MinigamesWon = 0;
+                            currentUser.MinigamesInRow = 0;
                             currentUser.GameWon++;
-                            goodProgress = currentUser.MinigamesWon;
+                            goodProgress = currentUser.MinigamesInRow;
                             progressPicture = new ObservableCollection<string>();
                             for (int j = 0; j < goodProgress; j++)
                                 progressPicture.Add("./image/check.png");
