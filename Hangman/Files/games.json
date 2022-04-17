@@ -2,8 +2,8 @@
   {
     "Id": 0,
     "UserId": 0,
-    "Name": "cars.txt",
-    "Word": "-U----",
+    "Name": "cars",
+    "Word": "-U--A",
     "ButtonsOne": [
       {
         "label": "Q",
@@ -15,7 +15,7 @@
       },
       {
         "label": "E",
-        "visible": "Visiblle"
+        "visible": "Hidden"
       },
       {
         "label": "R",
@@ -39,7 +39,7 @@
       },
       {
         "label": "O",
-        "visible": "Hidden"
+        "visible": "Visiblle"
       },
       {
         "label": "P",
@@ -114,7 +114,7 @@
         "visible": "Visiblle"
       }
     ],
-    "Tries": 3,
-    "saveTime": "Sat, 16 Apr 2022 16:00:07 GMT"
+    "Tries": 2,
+    "saveTime": "Sun, 17 Apr 2022 21:21:05 GMT"
   }
 ]

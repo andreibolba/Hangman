@@ -1,5 +1,4 @@
 ﻿using Hangman.Model;
-using Hangman.Model;
 using Hangman.View;
 using System;
 using System.Collections.Generic;
@@ -34,6 +33,7 @@ namespace Hangman.ViewModel
         private int tries;
         private bool canStart;
         private bool isFinished;
+        private bool playing;
 
         private ICommand m_social;
         private ICommand m_catrories;
@@ -61,6 +61,7 @@ namespace Hangman.ViewModel
             thirdLetterRow = new ObservableCollection<Button> { new Button("Z"), new Button("X"), new Button("C"), new Button("V"), new Button("B"), new Button("N"), new Button("M") };
             canStart = true;
             isFinished = false;
+            playing = true;
         }
 
         public void social(object parater)
@@ -107,9 +108,7 @@ namespace Hangman.ViewModel
                 OnPropertyChanged("initialTextVisibility");
             }
             else
-            {
                 MessageBox.Show("Start a game first");
-            }
         }
 
         public void changeVisibility(string letter)
@@ -152,6 +151,7 @@ namespace Hangman.ViewModel
                     OnPropertyChanged("labelContent");
                     if (text == word)
                     {
+                        playing = false;
                         MessageBox.Show("You won one game");
                         finishGame();
                         finishTextVisibility = "Visible";
@@ -211,9 +211,7 @@ namespace Hangman.ViewModel
 
             }
             else
-            {
                 MessageBox.Show("Choose a category");
-            }
         }
 
         public void newGame(object parameter)
@@ -223,12 +221,9 @@ namespace Hangman.ViewModel
                 {
                     currentUser.MinigamesWon = 0;
                     Tool.update(currentUser);
-
                 }
                 else
-                {
                     return;
-                }
             startGame();
             OnPropertyChanged("finishTextVisibility");
             OnPropertyChanged("firstLetterRow");
@@ -241,9 +236,15 @@ namespace Hangman.ViewModel
         }
 
         public void saveGame(object parameter)
-        {   
-            Game game = new Game(currentUser.ID, header, labelContent, firstLetterRow, secondLetterRow, thirdLetterRow, tries, DateTime.Now.ToString("ddd, dd MMM yyy HH':'mm':'ss 'GMT'"));
-            Tool.addGame(game);
+        {
+            if (playing == true)
+            {
+                Game game = new Game(currentUser.ID, header.Remove(header.Length - 4), labelContent, firstLetterRow, secondLetterRow, thirdLetterRow, tries, DateTime.Now.ToString("ddd, dd MMM yyy HH':'mm':'ss 'GMT'"));
+                Tool.addGame(game);
+                MessageBox.Show("Your game was saved succesfully!");
+            }
+            else
+                MessageBox.Show("Start a game first");
         }
 
         public ICommand Social
