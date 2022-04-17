@@ -1,1 +1,20 @@
-[{"ID":0,"UserName":"Bobi","PicPath":"./image/users/userimg4.png","GameWon":1,"MinigamesInRow":1,"MinigamesWon":6,"TotalGamesPlayed":6},{"ID":1,"UserName":"Mela","PicPath":"./image/users/userimg2.png","GameWon":0,"MinigamesInRow":0,"MinigamesWon":0,"TotalGamesPlayed":0}]
+[
+  {
+    "ID": 0,
+    "UserName": "Bobi",
+    "PicPath": "./image/users/userimg4.png",
+    "GameWon": 1,
+    "MinigamesInRow": 1,
+    "MinigamesWon": 4,
+    "TotalGamesPlayed": 6
+  },
+  {
+    "ID": 1,
+    "UserName": "Mela",
+    "PicPath": "./image/users/userimg2.png",
+    "GameWon": 0,
+    "MinigamesInRow": 0,
+    "MinigamesWon": 0,
+    "TotalGamesPlayed": 0
+  }
+]

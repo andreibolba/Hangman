@@ -41,22 +41,22 @@
         <Label Content="{Binding gameWon}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="25" Margin="488,136,314,408" HorizontalContentAlignment="Center"
+            FontSize="25" Margin="488,136,294,408" HorizontalContentAlignment="Center"
                />
         <Label Content="{Binding minigamePlayed}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="25" Margin="488,188,314,356" HorizontalContentAlignment="Center"
+            FontSize="25" Margin="488,188,294,356" HorizontalContentAlignment="Center"
                />
         <Label Content="{Binding minigameWon}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="25" Margin="488,244,314,300" HorizontalContentAlignment="Center"
+            FontSize="25" Margin="488,244,294,300" HorizontalContentAlignment="Center"
                />
         <Label Content="{Binding minigameLost}"
             Grid.Row="0"
             FontFamily="Impact"
-            FontSize="25" Margin="488,300,314,244" HorizontalContentAlignment="Center"
+            FontSize="25" Margin="488,300,294,244" HorizontalContentAlignment="Center"
                />
 
     </Grid>

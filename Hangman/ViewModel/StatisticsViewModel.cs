@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Hangman.ViewModel
 {
@@ -13,9 +14,10 @@ namespace Hangman.ViewModel
         {
             mainLabel = currentUser.UserName + " statistics";
             gameWon = currentUser.GameWon.ToString();
-            minigamePlayed=currentUser.TotalGamesPlayed.ToString();
-            minigameWon=currentUser.MinigamesWon.ToString();
-            minigameLost=(currentUser.TotalGamesPlayed-currentUser.MinigamesWon).ToString();
+            float minigameP = currentUser.TotalGamesPlayed, minigameW = currentUser.MinigamesWon, minigameL = minigameP - minigameW;
+            minigamePlayed = minigameP.ToString();
+            minigameWon = minigameW.ToString() + "(" + (minigameW * 100 / minigameP).ToString("0.00") + "%)";
+            minigameLost = minigameL.ToString() + "(" + (100- (minigameW * 100 / minigameP)).ToString("0.00") + "%)";
         }
 
         public static User currentUser { get; set; }

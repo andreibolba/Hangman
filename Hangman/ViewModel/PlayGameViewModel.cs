@@ -195,10 +195,10 @@ namespace Hangman.ViewModel
                         finishGame();
                         finishTextVisibility = "Visible";
                         OnPropertyChanged("finishTextVisibility");
-                        currentUser.MinigamesWon = 0;
+                        currentUser.MinigamesInRow = 0;
                         currentUser.TotalGamesPlayed++;
                         Tool.update(currentUser);
-                        int goodProgress = currentUser.MinigamesWon;
+                        int goodProgress = currentUser.MinigamesInRow;
                         progressPicture = new ObservableCollection<string>();
                         for (int j = 0; j < goodProgress; j++)
                             progressPicture.Add("./image/check.png");
