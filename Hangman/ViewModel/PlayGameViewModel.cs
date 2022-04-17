@@ -3,6 +3,7 @@ using Hangman.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 
@@ -27,13 +28,16 @@ namespace Hangman.ViewModel
         public string currentStage { get; set; }
         public string finishTextVisibility { get; set; }
         public string initialTextVisibility { get; set; }
+        public string timer { get; set; }
 
         private string word;
         private string header;
         private int tries;
+        private int time;
         private bool canStart;
         private bool isFinished;
         private bool playing;
+        private Thread timerLeft;
 
         private ICommand m_social;
         private ICommand m_catrories;
@@ -47,6 +51,8 @@ namespace Hangman.ViewModel
             currentStage = "./image/stage/part_one.png";
             finishTextVisibility = "Hidden";
             initialTextVisibility = "Visible";
+            time = 10;
+            timer = time.ToString() + " seconds";
             word = null;
             labelContent = null;
             tries = 0;
@@ -61,7 +67,42 @@ namespace Hangman.ViewModel
             thirdLetterRow = new ObservableCollection<Button> { new Button("Z"), new Button("X"), new Button("C"), new Button("V"), new Button("B"), new Button("N"), new Button("M") };
             canStart = true;
             isFinished = false;
-            playing = true;
+            
+        }
+
+        private void timeLeft()
+        {
+            while (time!=0)
+            {
+                Thread.Sleep(1000);
+                time--;
+                if(time==1)
+                timer = time.ToString() + " second";
+                else
+                    timer = time.ToString() + " seconds";
+                OnPropertyChanged("timer");
+            }
+            MessageBox.Show("Time exceeded!You lost a game!\nThe word was: " + word);
+            currentUser.MinigamesInRow = 0;
+            currentUser.TotalGamesPlayed++;
+            Tool.update(currentUser);
+            int goodProgress = currentUser.MinigamesInRow;
+            progressPicture = new ObservableCollection<string>();
+            for (int j = 0; j < goodProgress; j++)
+                progressPicture.Add("./image/check.png");
+            for (int j = goodProgress; j < 5; j++)
+                progressPicture.Add("./image/lock.png");
+            OnPropertyChanged("progressPicture");
+            canStart = false;
+            firstLetterRow = new ObservableCollection<Button> { new Button("Q","Hidden"), new Button("W", "Hidden"), new Button("E", "Hidden"), new Button("R", "Hidden"), new Button("T", "Hidden"), new Button("Y", "Hidden"), new Button("U", "Hidden"), new Button("I", "Hidden"), new Button("O", "Hidden"), new Button("P", "Hidden") };
+            secondLetterRow = new ObservableCollection<Button> { new Button("A", "Hidden"), new Button("S", "Hidden"), new Button("D", "Hidden"), new Button("F", "Hidden"), new Button("G", "Hidden"), new Button("H", "Hidden"), new Button("J", "Hidden"), new Button("K", "Hidden"), new Button("L", "Hidden") };
+            thirdLetterRow = new ObservableCollection<Button> { new Button("Z", "Hidden"), new Button("X", "Hidden"), new Button("C", "Hidden"), new Button("V", "Hidden"), new Button("B", "Hidden"), new Button("N", "Hidden"), new Button("M", "Hidden") };
+            OnPropertyChanged("firstLetterRow");
+            OnPropertyChanged("secondLetterRow");
+            OnPropertyChanged("thirdLetterRow");
+            finishTextVisibility = "Visible";
+            OnPropertyChanged("finishTextVisibility");
+            timerLeft.Abort();
         }
 
         public void social(object parater)
@@ -104,6 +145,9 @@ namespace Hangman.ViewModel
                 header = parater.ToString();
                 word = Tool.getStartWord(header);
                 labelContent = Tool.getTextFirstTime(word);
+                timerLeft = new Thread(timeLeft);
+                timerLeft.Start();
+                playing = true;
                 OnPropertyChanged("labelContent");
                 OnPropertyChanged("initialTextVisibility");
             }
@@ -135,6 +179,9 @@ namespace Hangman.ViewModel
             for (index = 0; index < thirdLetterRow.Count; index++)
                 thirdLetterRow[index] = new Button(thirdLetterRow[index].label, "Hidden");
             isFinished = true;
+            finishTextVisibility = "Visible";
+            OnPropertyChanged("finishTextVisibility");
+            timerLeft.Abort();
         }
 
         public void buttonPress(object parameter)
@@ -151,14 +198,12 @@ namespace Hangman.ViewModel
                     OnPropertyChanged("labelContent");
                     if (text == word)
                     {
-                        playing = false;
-                        MessageBox.Show("You won one game");
-                        finishGame();
-                        finishTextVisibility = "Visible";
-                        OnPropertyChanged("finishTextVisibility");
                         currentUser.MinigamesWon++;
                         currentUser.MinigamesInRow++;
                         currentUser.TotalGamesPlayed++;
+                        finishGame();
+                        playing = false;
+                        MessageBox.Show("You won one game");
                         int goodProgress = currentUser.MinigamesInRow;
                         progressPicture = new ObservableCollection<string>();
                         for (int j = 0; j < goodProgress; j++)
@@ -191,10 +236,8 @@ namespace Hangman.ViewModel
                     OnPropertyChanged("currentStage");
                     if (tries == Tool.images().Count - 1)
                     {
-                        MessageBox.Show("Lost game!\nThe word was: " + word);
                         finishGame();
-                        finishTextVisibility = "Visible";
-                        OnPropertyChanged("finishTextVisibility");
+                        MessageBox.Show("Lost game!\nThe word was: " + word);
                         currentUser.MinigamesInRow = 0;
                         currentUser.TotalGamesPlayed++;
                         Tool.update(currentUser);
@@ -216,11 +259,12 @@ namespace Hangman.ViewModel
 
         public void newGame(object parameter)
         {
-            if (isFinished == false)
+            if (playing == true)
                 if (MessageBox.Show("Are you sure", "Title_here", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     currentUser.MinigamesWon = 0;
                     Tool.update(currentUser);
+                    timerLeft.Abort();
                 }
                 else
                     return;
@@ -233,14 +277,16 @@ namespace Hangman.ViewModel
             OnPropertyChanged("labelContent");
             OnPropertyChanged("initialTextVisibility");
             OnPropertyChanged("progressPicture");
+            OnPropertyChanged("timer");
         }
 
         public void saveGame(object parameter)
         {
             if (playing == true)
             {
-                Game game = new Game(currentUser.ID, header.Remove(header.Length - 4), labelContent, firstLetterRow, secondLetterRow, thirdLetterRow, tries, DateTime.Now.ToString("ddd, dd MMM yyy HH':'mm':'ss 'GMT'"));
+                Game game = new Game(Tool.getIdGame(),currentUser.ID, header.Remove(header.Length - 4), labelContent, firstLetterRow, secondLetterRow, thirdLetterRow, tries, DateTime.Now.ToString("ddd, dd MMM yyy HH':'mm':'ss 'GMT'"),time);
                 Tool.addGame(game);
+                finishGame();
                 MessageBox.Show("Your game was saved succesfully!");
             }
             else

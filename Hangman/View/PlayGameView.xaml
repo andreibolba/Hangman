@@ -94,6 +94,13 @@
                    FontFamily="Impact" Margin="10,20,433,0" Height="35" VerticalAlignment="Top"
                        />
 
+                <Label Grid.Row="0"
+                       Content="{Binding timer}"
+                       FontSize="25"
+                       FontFamily="Impact"
+                       Margin="130,20,250,10"/>
+                
+
                 <ItemsControl x:Name="progressPictures" 
                           Grid.Row="1"
                           ItemsSource="{Binding progressPicture}"

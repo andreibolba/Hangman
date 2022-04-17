@@ -14,7 +14,7 @@ namespace Hangman.Model
     public class Tool
     {
         public static List<User> users;
-        public static List<Game> games = new List<Game>();
+        public static List<Game> games = readGames();
 
         public static string getStartWord(string fileName)
         {
@@ -222,6 +222,7 @@ namespace Hangman.Model
         public static void addGame(Game game)
         {
             games.Add(game);
+            MessageBox.Show(games.Count.ToString());
             string json = JsonConvert.SerializeObject(games.ToArray());
             System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\games.json", json);
         }
