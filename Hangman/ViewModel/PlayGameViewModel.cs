@@ -13,6 +13,7 @@ namespace Hangman.ViewModel
     {
         public PlayGameViewModel()
         {
+            savedGames = Tool.getGames(currentUser.ID);
             userText = "Hello " + currentUser.UserName + "!";
             startGame();
         }
@@ -20,6 +21,7 @@ namespace Hangman.ViewModel
         public ObservableCollection<Button> firstLetterRow { get; set; }
         public ObservableCollection<Button> secondLetterRow { get; set; }
         public ObservableCollection<Button> thirdLetterRow { get; set; }
+        public ObservableCollection<Game> savedGames { get; set; } 
         public ObservableCollection<string> progressPicture { get; set; }
 
         public static User currentUser { get; set; }
@@ -45,6 +47,7 @@ namespace Hangman.ViewModel
         private ICommand m_newgame;
         private ICommand m_stats;
         private ICommand m_save;
+        private ICommand m_load;
 
         private void startGame()
         {
@@ -285,13 +288,44 @@ namespace Hangman.ViewModel
         {
             if (playing == true)
             {
-                Game game = new Game(Tool.getIdGame(),currentUser.ID, header.Remove(header.Length - 4), labelContent, firstLetterRow, secondLetterRow, thirdLetterRow, tries, DateTime.Now.ToString("ddd, dd MMM yyy HH':'mm':'ss 'GMT'"),time);
+                Game game = new Game(Tool.getIdGame(),currentUser.ID, header.Remove(header.Length - 4), labelContent, word, firstLetterRow, secondLetterRow, thirdLetterRow, tries, DateTime.Now.ToString("ddd, dd MMM yyy HH':'mm':'ss 'GMT'"),time);
                 Tool.addGame(game);
                 finishGame();
                 MessageBox.Show("Your game was saved succesfully!");
             }
             else
                 MessageBox.Show("Start a game first");
+        }
+
+        public void loadGame(object parameter)
+        {
+            Game game = Tool.getGame(Int32.Parse(parameter.ToString()));
+            currentStage = Tool.images()[game.Tries];
+            finishTextVisibility = "Hidden";
+            initialTextVisibility = "Hidden";
+            time = game.timeLeft;
+            timerLeft = new Thread(timeLeft);
+            timerLeft.Start();
+            if (time == 1)
+                timer = time.ToString() + " seconds";
+            else
+                timer = time.ToString() + " seconds";
+            word = game.WordToGuess;
+            labelContent = game.Word;
+            tries = game.Tries;
+            firstLetterRow = game.ButtonsOne;
+            secondLetterRow = game.ButtonsTwo;
+            thirdLetterRow = game.ButtonsThree;
+            canStart = true;
+            isFinished = false;
+            OnPropertyChanged("finishTextVisibility");
+            OnPropertyChanged("initialTextVisibility");
+            OnPropertyChanged("timer");
+            OnPropertyChanged("labelContent");
+            OnPropertyChanged("firstLetterRow");
+            OnPropertyChanged("secondLetterRow");
+            OnPropertyChanged("thirdLetterRow");
+            Tool.deleteGame(game);
         }
 
         public ICommand Social
@@ -351,6 +385,16 @@ namespace Hangman.ViewModel
                 if (m_save == null)
                     m_save = new RelayCommand(saveGame);
                 return m_save;
+            }
+        }
+
+        public ICommand Load
+        {
+            get
+            {
+                if(m_load == null)
+                    m_load=new RelayCommand(loadGame);
+                return m_load;
             }
         }
     }

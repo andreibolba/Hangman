@@ -233,5 +233,26 @@ namespace Hangman.Model
             string json = JsonConvert.SerializeObject(games.ToArray());
             System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\games.json", json);
         }
+
+        public static void deleteGame(Game game)
+        {
+            games.Remove(game);
+            string json = JsonConvert.SerializeObject(games.ToArray());
+            System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\games.json", json);
+        }
+
+        public static ObservableCollection<Game> getGames(int id)
+        {
+            ObservableCollection<Game> savedGames = new ObservableCollection<Game>();
+            foreach(Game game in games)
+                if(game.UserId==id)
+                    savedGames.Add(game);
+            return savedGames;
+        }
+
+        public static Game getGame(int id)
+        {
+            return games[id];
+        }
     }
 }

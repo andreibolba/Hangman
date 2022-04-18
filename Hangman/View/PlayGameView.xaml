@@ -28,7 +28,18 @@
                       Width="65"
                       FontSize="15">
                 <MenuItem Header="New game" Command="{Binding Path=NewGame}"/>
-                <MenuItem Header="Open game"/>
+                <MenuItem Header="Open game">
+                    <ItemsControl x:Name="open" 
+                          ItemsSource="{Binding savedGames}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <MenuItem Header="{Binding Name}"
+                                          Command="{Binding ElementName=open,Path=DataContext.Load}"
+                                          CommandParameter="{Binding Id}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </MenuItem>
                 <MenuItem Header="Save game" Command="{Binding Path=Save}"/>
                 <Separator/>
                 <MenuItem Header="Statistic" Command="{Binding Path=Stats}"/>

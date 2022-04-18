@@ -1,3 +1,122 @@
 [
-
+  {
+    "Id": 0,
+    "UserId": 0,
+    "Name": "cars",
+    "Word": "-E--A-I",
+    "WordToGuess": "FERRARI",
+    "ButtonsOne": [
+      {
+        "label": "Q",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "W",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "E",
+        "visible": "Hidden"
+      },
+      {
+        "label": "R",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "T",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "Y",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "U",
+        "visible": "Hidden"
+      },
+      {
+        "label": "I",
+        "visible": "Hidden"
+      },
+      {
+        "label": "O",
+        "visible": "Hidden"
+      },
+      {
+        "label": "P",
+        "visible": "Visiblle"
+      }
+    ],
+    "ButtonsTwo": [
+      {
+        "label": "A",
+        "visible": "Hidden"
+      },
+      {
+        "label": "S",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "D",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "F",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "G",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "H",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "J",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "K",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "L",
+        "visible": "Visiblle"
+      }
+    ],
+    "ButtonsThree": [
+      {
+        "label": "Z",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "X",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "C",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "V",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "B",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "N",
+        "visible": "Visiblle"
+      },
+      {
+        "label": "M",
+        "visible": "Visiblle"
+      }
+    ],
+    "Tries": 2,
+    "saveTime": "Mon, 18 Apr 2022 17:10:44 GMT",
+    "timeLeft": 23
+  }
 ]
