@@ -51,7 +51,7 @@ namespace Hangman.ViewModel
             currentStage = "./image/stage/part_one.png";
             finishTextVisibility = "Hidden";
             initialTextVisibility = "Visible";
-            time = 10;
+            time = 30;
             timer = time.ToString() + " seconds";
             word = null;
             labelContent = null;

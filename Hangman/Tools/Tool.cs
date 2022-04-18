@@ -190,6 +190,14 @@ namespace Hangman.Model
             users.Remove(user);
             string json = JsonConvert.SerializeObject(users.ToArray());
             System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\users.json", json);
+            List<Game> newGames=new List<Game>();
+            foreach (Game game in games)
+                if (game.UserId != user.ID)
+                    newGames.Add(game);
+            games.Clear();
+            games=newGames;
+            json = JsonConvert.SerializeObject(games.ToArray());
+            System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\games.json", json);
         }
 
         public static ObservableCollection<string> getUsernames()
@@ -222,7 +230,6 @@ namespace Hangman.Model
         public static void addGame(Game game)
         {
             games.Add(game);
-            MessageBox.Show(games.Count.ToString());
             string json = JsonConvert.SerializeObject(games.ToArray());
             System.IO.File.WriteAllText(@"J:\FMI-AnII\Semestrul_2\MVP\Hangman\Hangman\Files\games.json", json);
         }
