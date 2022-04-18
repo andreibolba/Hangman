@@ -179,6 +179,7 @@ namespace Hangman.ViewModel
             for (index = 0; index < thirdLetterRow.Count; index++)
                 thirdLetterRow[index] = new Button(thirdLetterRow[index].label, "Hidden");
             isFinished = true;
+            playing = false;
             finishTextVisibility = "Visible";
             OnPropertyChanged("finishTextVisibility");
             timerLeft.Abort();
