@@ -85,7 +85,7 @@ namespace Hangman.ViewModel
                     timer = time.ToString() + " seconds";
                 OnPropertyChanged("timer");
             }
-            MessageBox.Show("Time exceeded!You lost a game!\nThe word was: " + word);
+            MessageBox.Show("Time exceeded!You lost a game!\nThe word was: " + word,"Lost game");
             currentUser.MinigamesInRow = 0;
             currentUser.TotalGamesPlayed++;
             Tool.update(currentUser);
@@ -155,7 +155,7 @@ namespace Hangman.ViewModel
                 OnPropertyChanged("initialTextVisibility");
             }
             else
-                MessageBox.Show("Start a game first");
+                MessageBox.Show("Start a game first!","Start new game!");
         }
 
         public void changeVisibility(string letter)
@@ -207,7 +207,7 @@ namespace Hangman.ViewModel
                         currentUser.TotalGamesPlayed++;
                         finishGame();
                         playing = false;
-                        MessageBox.Show("You won one game");
+                        MessageBox.Show("You won one game","Minigame won");
                         int goodProgress = currentUser.MinigamesInRow;
                         progressPicture = new ObservableCollection<string>();
                         for (int j = 0; j < goodProgress; j++)
@@ -217,7 +217,7 @@ namespace Hangman.ViewModel
                         OnPropertyChanged("progressPicture");
                         if (currentUser.MinigamesInRow == 5)
                         {
-                            MessageBox.Show("You won a big game. Congratulation!");
+                            MessageBox.Show("You won a big game. Congratulation!","Big game won");
                             currentUser.MinigamesInRow = 0;
                             currentUser.GameWon++;
                             goodProgress = currentUser.MinigamesInRow;
@@ -241,7 +241,7 @@ namespace Hangman.ViewModel
                     if (tries == Tool.images().Count - 1)
                     {
                         finishGame();
-                        MessageBox.Show("Lost game!\nThe word was: " + word);
+                        MessageBox.Show("Lost game!\nThe word was: " + word,"Lost game!");
                         currentUser.MinigamesInRow = 0;
                         currentUser.TotalGamesPlayed++;
                         Tool.update(currentUser);
@@ -258,13 +258,13 @@ namespace Hangman.ViewModel
 
             }
             else
-                MessageBox.Show("Choose a category");
+                MessageBox.Show("Choose a category","Category");
         }
 
         public void newGame(object parameter)
         {
             if (playing == true)
-                if (MessageBox.Show("Are you sure", "Title_here", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("You will lose all progress!", "Are you sure?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     currentUser.MinigamesWon = 0;
                     Tool.update(currentUser);
@@ -291,10 +291,10 @@ namespace Hangman.ViewModel
                 Game game = new Game(Tool.getIdGame(),currentUser.ID, header.Remove(header.Length - 4), labelContent, word, firstLetterRow, secondLetterRow, thirdLetterRow, tries, DateTime.Now.ToString("ddd, dd MMM yyy HH':'mm':'ss 'GMT'"),time);
                 Tool.addGame(game);
                 finishGame();
-                MessageBox.Show("Your game was saved succesfully!");
+                MessageBox.Show("Your game was saved succesfully!", "Save game!");
             }
             else
-                MessageBox.Show("Start a game first");
+                MessageBox.Show("Start a game first","Start new game");
         }
 
         public void loadGame(object parameter)

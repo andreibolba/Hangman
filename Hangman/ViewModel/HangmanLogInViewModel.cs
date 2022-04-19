@@ -50,7 +50,7 @@ namespace Hangman.ViewModel
         public void play(object parameter)
         {
             if (itemIndex == -1)
-                MessageBox.Show("No user selected!");
+                MessageBox.Show("No user selected!","Uselected user!");
             else
             {
                 PlayGameView gameView = new PlayGameView(Tool.getUserByUsername(usernames[itemIndex]));
@@ -62,12 +62,12 @@ namespace Hangman.ViewModel
         public void deleteProfile(object parameter)
         {
             if (itemIndex == -1)
-                MessageBox.Show("No user selected!");
+                MessageBox.Show("Select a user","No user selected");
             else
             {
                 Tool.deleteUser(Tool.getUserByUsername(usernames[itemIndex]));
                 usernames.RemoveAt(itemIndex);
-                MessageBox.Show("Users deleted succesfully");
+                MessageBox.Show("Users deleted succesfully","Delete succesfully");
             }
         }
 

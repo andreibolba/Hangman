@@ -47,7 +47,7 @@ namespace Hangman.ViewModel
                 }
                 else
                 {
-                    MessageBox.Show("Username already exists!");
+                    MessageBox.Show("Username already exists!","Duplicate username");
                 }
             }
         }
