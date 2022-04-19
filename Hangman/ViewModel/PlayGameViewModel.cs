@@ -266,7 +266,7 @@ namespace Hangman.ViewModel
             if (playing == true)
                 if (MessageBox.Show("You will lose all progress!", "Are you sure?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    currentUser.MinigamesWon = 0;
+                    currentUser.MinigamesInRow = 0;
                     Tool.update(currentUser);
                     timerLeft.Abort();
                 }
@@ -290,6 +290,8 @@ namespace Hangman.ViewModel
             {
                 Game game = new Game(Tool.getIdGame(),currentUser.ID, header.Remove(header.Length - 4), labelContent, word, firstLetterRow, secondLetterRow, thirdLetterRow, tries, DateTime.Now.ToString("ddd, dd MMM yyy HH':'mm':'ss 'GMT'"),time);
                 Tool.addGame(game);
+                savedGames.Add(game);
+                OnPropertyChanged("savedGames");
                 finishGame();
                 MessageBox.Show("Your game was saved succesfully!", "Save game!");
             }
@@ -326,6 +328,7 @@ namespace Hangman.ViewModel
             OnPropertyChanged("secondLetterRow");
             OnPropertyChanged("thirdLetterRow");
             Tool.deleteGame(game);
+            savedGames.Remove(game);
         }
 
         public ICommand Social

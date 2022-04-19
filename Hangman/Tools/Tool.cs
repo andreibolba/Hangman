@@ -252,7 +252,10 @@ namespace Hangman.Model
 
         public static Game getGame(int id)
         {
-            return games[id];
+            foreach(Game game in games)
+                if(game.Id==id)
+                    return game;
+            return null;
         }
     }
 }
