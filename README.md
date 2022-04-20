@@ -2,7 +2,7 @@
 
 Hangman game.<br>
 <br>
-#Main feature<br>
+<h1>Main feature</h1><br>
 
 <b>You can:</b><br>
 - make new profile<br>
