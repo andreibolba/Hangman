@@ -1,6 +1,7 @@
 # Hangman
 
-Hangman game.<br>
+Hangman game. You can choose a category for your word and then has a maximum of 5 mistakes and 30 seconds limit of time to guess it.<br>
+Also when you guess 5 word in row you win a big game.
 <br>
 <h1>Main feature</h1><br>
 
